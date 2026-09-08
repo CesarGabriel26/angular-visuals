@@ -27,6 +27,7 @@ Regra de implementacao: cada componente deve trazer tudo o que precisa para func
 - `av-progress-bar-circle`
 - `av-stepper`
 - `av-step`
+- `av-grid`
 
 ## Componentes simples para adicionar
 
@@ -161,13 +162,6 @@ Use subcomponentes quando o componente tiver regioes semanticas, itens repetidos
   - `av-toast-action`
 
 ### Data
-
-- `av-data-grid`
-  - `av-data-grid-toolbar`
-  - `av-data-grid-column`
-  - `av-data-grid-cell`
-  - `av-data-grid-row-actions`
-  - `av-data-grid-empty`
 - `av-tree`
   - `av-tree-node`
   - `av-tree-toggle`
