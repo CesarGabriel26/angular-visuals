@@ -1,0 +1,31 @@
+:host {
+  display: inline-flex;
+  width: fit-content;
+  flex-shrink: 0;
+
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  overflow: hidden;
+  border-radius: 9999px;
+
+  padding: 2px 8px;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  aspect-ratio: 1 / 1;
+
+  background-color: var(--av-badge-light-bg);
+  color: var(--av-white);
+
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+/* Dark sempre usa 700 */
+:host-context([data-av-theme="dark"]) {
+  background-color: var(--av-badge-dark-bg);
+}

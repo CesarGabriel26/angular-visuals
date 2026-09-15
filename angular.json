@@ -6,5 +6,92 @@
   },
   "newProjectRoot": "projects",
   "projects": {
+    "angular-visuals": {
+      "projectType": "library",
+      "root": "projects/angular-visuals",
+      "sourceRoot": "projects/angular-visuals/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-visuals/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/angular-visuals/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/angular-visuals/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "av-docs": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/av-docs",
+      "sourceRoot": "projects/av-docs/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/av-docs/src/main.ts",
+            "tsConfig": "projects/av-docs/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/av-docs/public"
+              }
+            ],
+            "styles": ["projects/av-docs/src/styles.css"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "av-docs:build:production"
+            },
+            "development": {
+              "buildTarget": "av-docs:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        }
+      }
+    }
   }
 }

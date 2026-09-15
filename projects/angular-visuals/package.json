@@ -1,0 +1,20 @@
+{
+  "name": "angular-visuals",
+  "version": "0.0.1",
+  "sideEffects": [
+    "src/styles/angular-visuals.css"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^22.1.0",
+    "@angular/core": "^22.1.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "files": [
+    "src/styles"
+  ],
+  "exports": {
+    "./styles/angular-visuals.css": "./src/styles/angular-visuals.css"
+  }
+}

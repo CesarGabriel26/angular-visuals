@@ -3,6 +3,9 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "angular-visuals": ["./projects/angular-visuals/src/public-api.ts"]
+    },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -19,5 +22,19 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true
   },
-  "files": []
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/angular-visuals/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/angular-visuals/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/av-docs/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/av-docs/tsconfig.spec.json"
+    }
+  ]
 }

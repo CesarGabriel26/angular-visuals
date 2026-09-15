@@ -1,0 +1,11 @@
+:root[data-av-theme="dark"] {
+  .bg-content {
+    background-color: var(--av-slate-900);
+  }
+}
+
+:root {
+  .bg-content {
+    background-color: var(--av-slate-50);
+  }
+}
