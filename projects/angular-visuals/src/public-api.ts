@@ -1,3 +1,4 @@
+import { AvSelect } from './lib/Components/form/av-select/av-select.component';
 import { AvInput } from './lib/Components/form/av-input/av-input.component';
 import { AvIconRegistry } from './Core/services/IconRegistry.service';
 import { AvButton } from './lib/Components/av-button/av-button.component';
@@ -16,5 +17,6 @@ export {
   AvBadge,
   AvButton,
 
-  AvInput
+  AvInput,
+  AvSelect
 }

@@ -12,7 +12,7 @@ export class AvButton {
   private readonly config = inject(VISUALS_CONFIG);
 
   icon = input<string>();
-  loadingIcon = input<string>();
+  loadingIcon = input<string>('blocks-shuffle-3');
   loading = input<boolean>(false)
   variant = input<string>(this.config.theme.defaultVariant);
   rounded = input<number | "xs" | "sm" | "md" | "lg" | "xl" | "full">("md");

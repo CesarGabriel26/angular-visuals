@@ -29,15 +29,13 @@ import { VISUALS_CONFIG } from '../../../../Core/tokens';
 export class AvInput implements ControlValueAccessor, AfterViewInit {
   private readonly config = inject(VISUALS_CONFIG);
 
-  @Input() placeholder: string = '';
-  @Input() type: string = 'text';
-  @Input() label: string = '';
-
-  @Input() autoFocus: boolean = false;
-
+  placeholder = input<string>('');
+  type = input<string>('text');
+  label = input<string>();
   icon = input<string>();
-  loadingIcon = input<string>();
-  loading = input<boolean>(false)
+  loading = input<boolean>(false);
+  autoFocus = input<boolean>(false);
+  loadingIcon = input<string>('blocks-shuffle-3');
   variant = input<string>(this.config.theme.defaultVariant);
   rounded = input<number | "xs" | "sm" | "md" | "lg" | "xl" | "full">("md");
 
@@ -59,12 +57,10 @@ export class AvInput implements ControlValueAccessor, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (this.autoFocus && this.inputEl) {
+    if (this.autoFocus() && this.inputEl) {
       setTimeout(() => this.inputEl.nativeElement.focus(), 0);
     }
   }
-
-
 
   get controlClasses(): string {
     return [

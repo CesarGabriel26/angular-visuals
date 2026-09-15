@@ -21,7 +21,7 @@
 }
 
 .av-input__icon {
-  color: #374151;
+  color: var(--av-neutral-400);
   display: flex;
   left: .75rem;
   pointer-events: none;
@@ -29,11 +29,15 @@
 }
 
 .av-input__control {
-  border: 1px solid var(--av-input-border);
-  border-radius: .5rem;
+  border: 2px solid var(--av-neutral-300);
+  border-radius: var(--av-radius-lg);
   padding: .5rem 1rem;
   transition: all .2s ease;
   width: 100%;
+}
+
+.av-input__control:hover {
+  border-color: var(--av-neutral-400);
 }
 
 .av-input__control:focus {
@@ -109,7 +113,10 @@
   }
 
   .av-input__control {
-    border-color: var(--av-input-border);
+    border-color: var(--av-neutral-700);
+  }
+  .av-input__control:hover {
+    border-color: var(--av-neutral-600);
   }
 
   .av-input__icon {

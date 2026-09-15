@@ -1,11 +1,14 @@
 <div class="bg-content w-dvw h-dvh">
   <span av-badge > 0 </span>
 
-  <button av-button icon="calendar_today" loadingIcon="gooey-balls-1" [loading]="true">
+  <button av-button icon="calendar_today" [loading]="true">
     Calendario
   </button>
 
-  <av-input label="Testes" icon="calendar_today" loadingIcon="gooey-balls-1" [loading]="true"/>
+  <form action="" class="p-4">
+    <av-input label="Testes" placeholder="Testeeeeeeeeeeeeeeeeeeeeeee" icon="calendar_today" />
+    <av-select label="Testes" placeholder="Testeeeeeeeeeeeeeeeeeeeeeee" icon="calendar_today" [data]="[]" />
+  </form>
 
   <router-outlet />
 </div>

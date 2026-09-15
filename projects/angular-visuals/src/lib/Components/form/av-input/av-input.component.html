@@ -1,13 +1,11 @@
 <div class="av-input"
-[style.--av-input-border]="`var(--av-${variant()}-300)`"
-[style.--av-input-border-dark]="`var(--av-${variant()}-50)`"
 [style.--av-input-disabled-bg]="`var(--av-${variant()}-100)`"
 [style.--av-input-accent]="`var(--av-${variant()}-500)`"
 [style.--av-input-accent-dark]="`var(--av-${variant()}-700)`"
 >
-  @if (label) {
+  @if (label()) {
     <label class="av-input__label">
-      {{ label }}
+      {{ label() }}
     </label>
   }
 
@@ -20,9 +18,9 @@
 
     <input
       #inputRef
-      [type]="type"
+      [type]="type()"
       [value]="value"
-      [placeholder]="placeholder"
+      [placeholder]="placeholder()"
       [disabled]="disabled"
       (input)="onInput($event)"
       (blur)="onTouched()"
