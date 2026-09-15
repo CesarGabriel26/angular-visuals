@@ -11,8 +11,7 @@ export const appConfig: ApplicationConfig = {
     provideAngularVisuals({
       theme: {
         mode: 'light',
-        defaultVariant: 'blue',
-        defaultIntensity: 500
+        defaultVariant: 'emerald',
       }
     })
   ],

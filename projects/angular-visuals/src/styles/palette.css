@@ -1,11 +1,4 @@
 :root {
-  --av-radius-xs: 0.125rem;
-  --av-radius-sm: 0.25rem;
-  --av-radius-md: 0.375rem;
-  --av-radius-lg: 0.5rem;
-  --av-radius-xl: 0.75rem;
-  --av-radius-full: calc(infinity * 1px);
-
   /* Black & White */
   --av-black: #000000;
   --av-white: #ffffff;

@@ -1,9 +1,11 @@
 <div class="bg-content w-dvw h-dvh">
-  <span av-badge variant="red"> 0 </span>
+  <span av-badge > 0 </span>
 
-  <button av-button>
-    teste
+  <button av-button icon="calendar_today" loadingIcon="gooey-balls-1" [loading]="true">
+    Calendario
   </button>
+
+  <av-input label="Testes" icon="calendar_today" loadingIcon="gooey-balls-1" [loading]="true"/>
 
   <router-outlet />
 </div>

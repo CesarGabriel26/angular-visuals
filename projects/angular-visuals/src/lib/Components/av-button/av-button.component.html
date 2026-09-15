@@ -1,1 +1,4 @@
-<ng-content></ng-content>
+@if(icon() || loading()) {<span av-icon [name]="loading()? loadingIcon()!: icon()!"></span>}
+<div>
+  <ng-content></ng-content>
+</div>

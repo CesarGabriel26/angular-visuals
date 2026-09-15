@@ -1,8 +1,9 @@
 import { Component, HostBinding, inject, input } from '@angular/core';
 import { VISUALS_CONFIG } from '../../../Core/tokens';
+import { AvIcon } from '../av-icon/av-icon.component';
 
 @Component({
-  imports: [],
+  imports: [AvIcon],
   selector: 'button[av-button], a[av-button]',
   styleUrl: './av-button.component.css',
   templateUrl: './av-button.component.html',
@@ -10,11 +11,11 @@ import { VISUALS_CONFIG } from '../../../Core/tokens';
 export class AvButton {
   private readonly config = inject(VISUALS_CONFIG);
 
-  variant = input<string>(
-    this.config.theme.defaultVariant
-  );
-
-  rounded = input<number | "xs" | "sm" | "md" | "lg" | "xl" | "full">("md")
+  icon = input<string>();
+  loadingIcon = input<string>();
+  loading = input<boolean>(false)
+  variant = input<string>(this.config.theme.defaultVariant);
+  rounded = input<number | "xs" | "sm" | "md" | "lg" | "xl" | "full">("md");
 
   @HostBinding('style.border-radius')
   get roundedClass(): string {
