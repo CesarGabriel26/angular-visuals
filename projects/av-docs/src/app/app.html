@@ -1,14 +1,22 @@
-<div class="bg-content w-dvw h-dvh">
-  <span av-badge > 0 </span>
+<div class="bg-content min-h-dvh">
+  <div class="mx-auto flex max-w-3xl flex-col gap-4 p-6">
+    <div class="flex items-center gap-3">
+      <span av-badge>0</span>
 
-  <button av-button icon="calendar_today" [loading]="true">
-    Calendario
-  </button>
+      <button av-button icon="calendar_today" [loading]="true">
+        Calendário
+      </button>
+    </div>
 
-  <form action="" class="p-4">
-    <av-input label="Testes" placeholder="Testeeeeeeeeeeeeeeeeeeeeeee" icon="calendar_today" />
-    <av-select label="Testes" placeholder="Testeeeeeeeeeeeeeeeeeeeeeee" icon="calendar_today" [data]="[]" />
-  </form>
+    <form action="" class="grid gap-4">
+      <av-input label="Texto" placeholder="Digite alguma coisa" icon="calendar_today" />
+      <av-currency-input label="Valor" />
+      <av-date-time-picker label="Data e hora" />
+      <av-select label="Select" placeholder="Selecione um valor" icon="calendar_today" [data]="array()" />
+      <av-multiselect label="Multiselect" placeholder="Selecione valores" icon="calendar_today" [data]="array()" />
+      <av-checkbox label="Aceito os termos" />
+    </form>
+  </div>
 
   <router-outlet />
 </div>

@@ -1,0 +1,38 @@
+<div class="av-checkbox" [ngStyle]="themeVars()">
+  <label
+    class="av-checkbox__label"
+    [class.av-checkbox__label--disabled]="disabled()"
+  >
+    <input
+      type="checkbox"
+      class="av-checkbox__native"
+      [checked]="value()"
+      [disabled]="disabled()"
+      (change)="handleChange($event)"
+      (blur)="onTouched()"
+    />
+
+    <span
+      class="av-checkbox__box"
+      [class.av-checkbox__box--checked]="value()"
+      [class.av-checkbox__box--invalid]="isInvalid"
+      [style.border-radius]="roundedStyle"
+    >
+      @if (value()) {
+        <span av-icon [name]="icon()" class="av-checkbox__icon"></span>
+      }
+    </span>
+
+    @if (label()) {
+      <span class="av-checkbox__text">
+        {{ label() }}
+      </span>
+    }
+  </label>
+
+  @if (isInvalid || errorMessage()) {
+    <span class="av-checkbox__error">
+      {{ errorMessage() || 'Campo obrigatório' }}
+    </span>
+  }
+</div>

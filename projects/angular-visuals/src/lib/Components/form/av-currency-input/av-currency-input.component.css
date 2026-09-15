@@ -1,0 +1,117 @@
+.av-currency-input {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  width: 100%;
+  color: var(--av-color-text);
+}
+
+.av-currency-input__label {
+  color: var(--av-color-text);
+  font-size: .875rem;
+  font-weight: bold;
+  text-align: start;
+}
+
+.av-currency-input__field {
+  align-items: center;
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.av-currency-input__symbol {
+  align-items: center;
+  background: var(--av-currency-symbol-bg);
+  border: 1px solid var(--av-color-border-soft);
+  border-radius: var(--av-radius-sm);
+  color: var(--av-color-text-muted);
+  display: flex;
+  font-size: .75rem;
+  font-weight: 700;
+  left: .625rem;
+  min-width: 1.75rem;
+  padding: .125rem .25rem;
+  pointer-events: none;
+  position: absolute;
+  justify-content: center;
+}
+
+.av-currency-input__control {
+  background: var(--av-color-surface);
+  border: 2px solid var(--av-color-border);
+  box-shadow: var(--av-shadow-control);
+  color: var(--av-color-text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 600;
+  padding: .5rem 1rem;
+  text-align: right;
+  transition:
+    background-color .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease,
+    color .2s ease;
+  width: 100%;
+}
+
+.av-currency-input__control::placeholder {
+  color: var(--av-color-text-subtle);
+}
+
+.av-currency-input__control:hover {
+  border-color: var(--av-color-border-hover);
+}
+
+.av-currency-input__control:focus {
+  border-color: var(--av-currency-accent);
+  box-shadow: var(--av-shadow-control), 0 0 0 2px var(--av-currency-accent);
+  box-shadow: var(--av-shadow-control), 0 0 0 3px color-mix(in srgb, var(--av-currency-accent) 24%, transparent);
+  outline: none;
+}
+
+.av-currency-input__control:disabled {
+  background: var(--av-color-surface-muted);
+  color: var(--av-color-text-muted);
+  cursor: not-allowed;
+  opacity: .72;
+}
+
+.av-currency-input__control--with-symbol {
+  padding-left: 3rem;
+}
+
+.av-currency-input__control--without-symbol {
+  padding-left: 1rem;
+}
+
+.av-currency-input__control--invalid,
+.av-currency-input__control--invalid:focus {
+  border-color: var(--av-color-danger);
+  box-shadow: var(--av-shadow-control), 0 0 0 2px var(--av-color-danger);
+  box-shadow: var(--av-shadow-control), 0 0 0 3px color-mix(in srgb, var(--av-color-danger) 24%, transparent);
+  color: var(--av-color-danger-text);
+  animation: av-currency-input-shake .4s ease-in-out;
+}
+
+.av-currency-input__error {
+  color: var(--av-color-danger);
+  font-size: .75rem;
+  font-weight: 500;
+}
+
+@keyframes av-currency-input-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20%,
+  60% {
+    transform: translateX(-4px);
+  }
+
+  40%,
+  80% {
+    transform: translateX(4px);
+  }
+}

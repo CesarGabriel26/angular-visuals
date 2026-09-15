@@ -1,11 +1,58 @@
-:root[data-av-theme="dark"] {
-  .bg-content {
-    background-color: var(--av-slate-900);
-  }
+:root,
+:root[data-av-theme="light"] {
+  color-scheme: light;
+
+  --av-color-bg: var(--av-slate-50);
+  --av-color-surface: var(--av-white);
+  --av-color-surface-muted: var(--av-slate-100);
+  --av-color-surface-raised: var(--av-white);
+
+  --av-color-text: var(--av-slate-900);
+  --av-color-text-muted: var(--av-slate-600);
+  --av-color-text-subtle: var(--av-slate-400);
+  --av-color-text-inverse: var(--av-white);
+
+  --av-color-border: var(--av-slate-300);
+  --av-color-border-soft: var(--av-slate-200);
+  --av-color-border-hover: var(--av-slate-400);
+
+  --av-color-danger: var(--av-red-500);
+  --av-color-danger-text: var(--av-red-800);
+  --av-color-danger-soft: var(--av-red-50);
+
+  --av-shadow-raised: 0 20px 25px -5px rgb(15 23 42 / .10), 0 8px 10px -6px rgb(15 23 42 / .10);
+  --av-shadow-control: 0 1px 2px rgb(15 23 42 / .06);
 }
 
-:root {
-  .bg-content {
-    background-color: var(--av-slate-50);
-  }
+:root[data-av-theme="dark"] {
+  color-scheme: dark;
+
+  --av-color-bg: var(--av-slate-950);
+  --av-color-surface: var(--av-slate-900);
+  --av-color-surface-muted: var(--av-slate-800);
+  --av-color-surface-raised: var(--av-slate-900);
+
+  --av-color-text: var(--av-slate-100);
+  --av-color-text-muted: var(--av-slate-400);
+  --av-color-text-subtle: var(--av-slate-500);
+  --av-color-text-inverse: var(--av-slate-950);
+
+  --av-color-border: var(--av-slate-700);
+  --av-color-border-soft: var(--av-slate-800);
+  --av-color-border-hover: var(--av-slate-600);
+
+  --av-color-danger: var(--av-red-400);
+  --av-color-danger-text: var(--av-red-200);
+  --av-color-danger-soft: rgb(127 29 29 / .18);
+
+  --av-shadow-raised: 0 22px 40px rgb(0 0 0 / .46), 0 8px 16px rgb(0 0 0 / .28);
+  --av-shadow-control: 0 1px 2px rgb(0 0 0 / .24);
+}
+
+.bg-content {
+  background-color: var(--av-color-bg);
+  color: var(--av-color-text);
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
 }

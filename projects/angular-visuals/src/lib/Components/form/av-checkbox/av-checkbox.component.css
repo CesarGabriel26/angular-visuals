@@ -1,0 +1,112 @@
+.av-checkbox {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  color: var(--av-color-text);
+}
+
+.av-checkbox__label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  gap: .625rem;
+  user-select: none;
+  width: fit-content;
+}
+
+.av-checkbox__label--disabled {
+  cursor: not-allowed;
+  opacity: .72;
+}
+
+.av-checkbox__native {
+  height: 1px;
+  margin: -1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+.av-checkbox__box {
+  align-items: center;
+  background: var(--av-color-surface);
+  border: 2px solid var(--av-color-border);
+  box-shadow: var(--av-shadow-control);
+  color: var(--av-color-text-inverse);
+  display: flex;
+  flex-shrink: 0;
+  height: 1.25rem;
+  justify-content: center;
+  transition:
+    background-color .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease,
+    transform .2s ease;
+  width: 1.25rem;
+}
+
+.av-checkbox__label:hover .av-checkbox__box {
+  border-color: var(--av-color-border-hover);
+}
+
+.av-checkbox__label:focus-within .av-checkbox__box {
+  border-color: var(--av-checkbox-accent);
+  box-shadow: var(--av-shadow-control), 0 0 0 2px var(--av-checkbox-accent);
+  box-shadow: var(--av-shadow-control), 0 0 0 3px color-mix(in srgb, var(--av-checkbox-accent) 24%, transparent);
+}
+
+.av-checkbox__box--checked {
+  background: var(--av-checkbox-accent);
+  border-color: var(--av-checkbox-accent);
+}
+
+.av-checkbox__label:hover .av-checkbox__box--checked {
+  background: var(--av-checkbox-accent-hover);
+  border-color: var(--av-checkbox-accent-hover);
+}
+
+.av-checkbox__box--invalid {
+  border-color: var(--av-color-danger);
+  animation: av-checkbox-shake .4s ease-in-out;
+}
+
+.av-checkbox__icon {
+  color: var(--av-white);
+  font-size: .875rem;
+  line-height: 1;
+}
+
+.av-checkbox__text {
+  color: var(--av-color-text);
+  font-size: .875rem;
+  font-weight: 500;
+  transition: color .2s ease;
+}
+
+.av-checkbox__label:hover .av-checkbox__text {
+  color: var(--av-color-text);
+}
+
+.av-checkbox__error {
+  color: var(--av-color-danger);
+  font-size: .75rem;
+  font-weight: 500;
+}
+
+@keyframes av-checkbox-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20%,
+  60% {
+    transform: translateX(-4px);
+  }
+
+  40%,
+  80% {
+    transform: translateX(4px);
+  }
+}

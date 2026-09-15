@@ -1,0 +1,168 @@
+<div class="av-date-picker" [ngStyle]="themeVars()">
+  @if (label()) {
+    <label class="av-date-picker__label">{{ label() }}</label>
+  }
+
+  <button
+    #triggerEl
+    cdkOverlayOrigin
+    #trigger="cdkOverlayOrigin"
+    type="button"
+    (click)="toggleDropdown()"
+    class="av-date-picker__trigger"
+    [class.av-date-picker__trigger--open]="isOpen()"
+    [class.av-date-picker__trigger--disabled]="disabled()"
+    [class.av-date-picker__trigger--invalid]="isInvalid"
+    [disabled]="disabled()"
+    [style.border-radius]="roundedStyle"
+  >
+    <span class="av-date-picker__trigger-icon">
+      <span av-icon [name]="defaultIcon"></span>
+    </span>
+
+    <span class="av-date-picker__trigger-value" [class.av-date-picker__trigger-value--placeholder]="!selectedDate()">
+      {{ displayValue() || placeholder() }}
+    </span>
+  </button>
+
+  @if (isInvalid || errorMessage()) {
+    <span class="av-date-picker__error">
+      {{ errorMessage() || 'Data/Hora inválida' }}
+    </span>
+  }
+</div>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="isOpen()"
+  [cdkConnectedOverlayHasBackdrop]="true"
+  cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+  (backdropClick)="closeDropdown()"
+>
+  <div
+    class="av-date-picker__panel"
+    [ngStyle]="themeVars()"
+    [style.border-radius]="roundedStyle"
+  >
+    @if (mode() === 'datetime') {
+      <div class="av-date-picker__tabs">
+        <button
+          type="button"
+          (click)="activeTab.set('date')"
+          class="av-date-picker__tab"
+          [class.av-date-picker__tab--active]="activeTab() === 'date'"
+        >
+          Data
+        </button>
+        <button
+          type="button"
+          (click)="activeTab.set('time')"
+          class="av-date-picker__tab"
+          [class.av-date-picker__tab--active]="activeTab() === 'time'"
+        >
+          Hora
+        </button>
+      </div>
+    }
+
+    @if (activeTab() === 'date') {
+      <div class="av-date-picker__calendar">
+        <div class="av-date-picker__month-nav">
+          <button
+            type="button"
+            (click)="changeMonth(-1)"
+            class="av-date-picker__nav-button"
+            aria-label="Mês anterior"
+          >
+            <span av-icon name="chevron_left"></span>
+          </button>
+          <span class="av-date-picker__month-label">
+            {{ monthLabel() }}
+          </span>
+          <button
+            type="button"
+            (click)="changeMonth(1)"
+            class="av-date-picker__nav-button"
+            aria-label="Próximo mês"
+          >
+            <span av-icon name="chevron_right"></span>
+          </button>
+        </div>
+
+        <div class="av-date-picker__weekdays">
+          @for (day of weekDays; track day) {
+            <span class="av-date-picker__weekday">{{ day }}</span>
+          }
+        </div>
+
+        <div class="av-date-picker__days">
+          @for (day of calendarDays(); track $index) {
+            @if (day) {
+              <button
+                type="button"
+                (click)="selectDay(day)"
+                class="av-date-picker__day"
+                [class.av-date-picker__day--selected]="isDaySelected(day)"
+              >
+                {{ day.getDate() }}
+              </button>
+            } @else {
+              <span class="av-date-picker__day-spacer"></span>
+            }
+          }
+        </div>
+      </div>
+    }
+
+    @if (activeTab() === 'time') {
+      <div class="av-date-picker__time">
+        <div class="av-date-picker__digital-time">
+          <span>{{ hours().toString().padStart(2, '0') }}</span>
+          <span>:</span>
+          <span>{{ minutes().toString().padStart(2, '0') }}</span>
+        </div>
+
+        <div class="av-date-picker__time-section">
+          <span class="av-date-picker__time-label">Horas</span>
+          <div class="av-date-picker__time-grid av-date-picker__time-grid--hours">
+            @for (hour of hourOptions; track hour) {
+              <button
+                type="button"
+                (click)="selectHour(hour)"
+                class="av-date-picker__time-option"
+                [class.av-date-picker__time-option--selected]="hours() === hour"
+              >
+                {{ hour.toString().padStart(2, '0') }}
+              </button>
+            }
+          </div>
+        </div>
+
+        <div class="av-date-picker__time-section">
+          <span class="av-date-picker__time-label">Minutos</span>
+          <div class="av-date-picker__time-grid">
+            @for (minute of minuteOptions; track minute) {
+              <button
+                type="button"
+                (click)="selectMinute(minute)"
+                class="av-date-picker__time-option"
+                [class.av-date-picker__time-option--selected]="minutes() === minute"
+              >
+                {{ minute.toString().padStart(2, '0') }}
+              </button>
+            }
+          </div>
+        </div>
+
+        <button
+          type="button"
+          (click)="confirmSelection()"
+          class="av-date-picker__confirm"
+        >
+          Confirmar
+        </button>
+      </div>
+    }
+  </div>
+</ng-template>

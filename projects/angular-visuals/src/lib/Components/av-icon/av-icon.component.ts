@@ -1,6 +1,6 @@
-import { Component, HostBinding, input, Input } from '@angular/core';
+import { Component, HostBinding, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AvIconRegistry } from 'angular-visuals';
+import { AvIconRegistry } from '../../../Core/services/IconRegistry.service';
 
 
 @Component({

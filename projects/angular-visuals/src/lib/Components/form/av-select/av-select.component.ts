@@ -79,22 +79,75 @@ export class AvSelect implements ControlValueAccessor {
 
   get themeVars(): Record<string, string> {
     const isDark = this.themeService.dark();
+    const variant = this.variant();
+    const accent = `var(--av-${variant}-${isDark ? 400 : 500})`;
 
     return {
-      '--av-select-color': isDark ? 'var(--av-white)' : '#374151',
-      '--av-select-muted-color': isDark ? 'var(--av-white)' : 'var(--av-neutral-400)',
-      '--av-select-trigger-bg': isDark ? 'var(--av-neutral-900)' : '#fff',
-      '--av-select-trigger-border': isDark ? 'var(--av-neutral-700)' : 'var(--av-neutral-300)',
-      '--av-select-trigger-hover-border': isDark ? 'var(--av-neutral-600)' : 'var(--av-neutral-400)',
-      '--av-select-panel-bg': isDark ? 'var(--av-neutral-900)' : '#fff',
-      '--av-select-panel-border': isDark ? 'var(--av-neutral-700)' : 'var(--av-neutral-200)',
-      '--av-select-panel-shadow': isDark ? '0 20px 30px rgb(15 23 42 / .35)' : '0 20px 25px -5px rgb(0 0 0 / .1), 0 8px 10px -6px rgb(0 0 0 / .1)',
-      '--av-select-search-bg': isDark ? 'rgba(15, 23, 42, .95)' : '#f9fafb',
-      '--av-select-search-border': isDark ? 'var(--av-neutral-700)' : '#f3f4f6',
-      '--av-select-search-color': isDark ? 'var(--av-white)' : '#374151',
-      '--av-select-option-hover-bg': isDark ? 'rgba(148, 163, 184, .12)' : '#f3f4f6',
-      '--av-select-option-selected-bg': isDark ? 'var(--av-select-soft, rgba(59, 130, 246, .18))' : 'var(--av-select-soft, #eff6ff)',
-      '--av-select-empty-color': isDark ? 'var(--av-white)' : 'var(--av-neutral-400)',
+      // Base
+      '--av-select-color': 'var(--av-color-text)',
+
+      '--av-select-muted-color': 'var(--av-color-text-subtle)',
+
+      // Trigger
+      '--av-select-trigger-bg': 'var(--av-color-surface)',
+
+      '--av-select-trigger-border': 'var(--av-color-border)',
+
+      '--av-select-trigger-hover-border':
+        isDark
+          ? `var(--av-${variant}-400)`
+          : `var(--av-${variant}-400)`,
+
+      '--av-select-trigger-focus-border': accent,
+
+      // Panel
+      '--av-select-panel-bg': 'var(--av-color-surface-raised)',
+
+      '--av-select-panel-border': 'var(--av-color-border-soft)',
+
+      '--av-select-panel-shadow': 'var(--av-shadow-raised)',
+
+      // Search
+      '--av-select-search-border': 'var(--av-color-border-soft)',
+
+      '--av-select-search-focus-border': accent,
+
+      '--av-select-search-color': 'var(--av-color-text)',
+
+      // Options
+      '--av-select-option-hover-bg':
+        isDark
+          ? `color-mix(in srgb, var(--av-${variant}-400) 12%, transparent)`
+          : `var(--av-${variant}-50)`,
+
+      '--av-select-option-hover-color':
+        isDark
+          ? `var(--av-${variant}-100)`
+          : `var(--av-${variant}-800)`,
+
+      '--av-select-option-selected-bg':
+        isDark
+          ? `color-mix(in srgb, var(--av-${variant}-400) 18%, transparent)`
+          : `var(--av-${variant}-100)`,
+
+      '--av-select-option-selected-color':
+        isDark
+          ? `var(--av-${variant}-100)`
+          : `var(--av-${variant}-700)`,
+
+      '--av-select-option-selected-icon':
+        isDark
+          ? `var(--av-${variant}-400)`
+          : `var(--av-${variant}-600)`,
+
+      // Empty
+      '--av-select-empty-color': 'var(--av-color-text-subtle)',
+      '--av-select-disabled-bg': 'var(--av-color-surface-muted)',
+      '--av-select-accent': accent,
+      '--av-select-soft':
+        isDark
+          ? `color-mix(in srgb, var(--av-${variant}-400) 18%, transparent)`
+          : `var(--av-${variant}-100)`,
     };
   }
 

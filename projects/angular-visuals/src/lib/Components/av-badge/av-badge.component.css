@@ -25,7 +25,6 @@
     color 150ms ease;
 }
 
-/* Dark sempre usa 700 */
 :host-context([data-av-theme="dark"]) {
   background-color: var(--av-badge-dark-bg);
 }

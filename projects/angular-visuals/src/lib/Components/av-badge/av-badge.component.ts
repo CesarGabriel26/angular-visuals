@@ -26,6 +26,6 @@ export class AvBadge {
 
   @HostBinding('style.--av-badge-dark-bg')
   get darkBackground(): string {
-    return `var(--av-${this.variant()}-700)`;
+    return `var(--av-${this.variant()}-600)`;
   }
 }

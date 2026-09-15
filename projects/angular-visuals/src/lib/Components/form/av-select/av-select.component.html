@@ -1,10 +1,6 @@
 <div
   class="av-select"
   [ngStyle]="themeVars"
-  [style.--av-select-disabled-bg]="`var(--av-${variant()}-100)`"
-  [style.--av-select-accent]="`var(--av-${variant()}-500)`"
-  [style.--av-select-accent-dark]="`var(--av-${variant()}-700)`"
-  [style.--av-select-soft]="`var(--av-${variant()}-100)`"
 >
   @if (label()) {
     <label class="av-select__label">

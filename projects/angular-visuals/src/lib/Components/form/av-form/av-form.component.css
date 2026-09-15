@@ -1,0 +1,19 @@
+:host(.av-form) {
+  display: block;
+  padding: 1rem;
+}
+
+:host(.av-form--solid) {
+  background: var(--av-color-surface);
+  border: 1px solid var(--av-color-border-soft);
+  border-radius: var(--av-radius-lg);
+  box-shadow: var(--av-shadow-raised);
+}
+
+:host(.av-form--glass) {
+  background: color-mix(in srgb, var(--av-color-surface) 72%, transparent);
+  border: 1px solid color-mix(in srgb, var(--av-color-border) 70%, transparent);
+  border-radius: var(--av-radius-xl);
+  box-shadow: var(--av-shadow-raised);
+  backdrop-filter: blur(3.3px);
+}

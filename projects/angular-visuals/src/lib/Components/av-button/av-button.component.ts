@@ -37,12 +37,11 @@ export class AvButton {
 
   @HostBinding('style.--av-button-dark-bg')
   get darkBackground(): string {
-    return `var(--av-${this.variant()}-700)`;
+    return `var(--av-${this.variant()}-600)`;
   }
 
   @HostBinding('style.--av-button-dark-hover-bg')
   get darkHoverBackground(): string {
-    return `var(--av-${this.variant()}-600)`;
+    return `var(--av-${this.variant()}-500)`;
   }
 }
-
