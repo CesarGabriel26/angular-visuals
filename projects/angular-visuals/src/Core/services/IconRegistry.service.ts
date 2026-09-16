@@ -23,7 +23,8 @@ export class AvIconRegistry {
 
   /** Registra um único ícone/loader SVG */
   registerIcon(name: string, svgContent: string): void {
-    const safeSvg = this.sanitizer.bypassSecurityTrustHtml(svgContent);
+    const normalizedSvg = this.normalizeSvg(svgContent);
+    const safeSvg = this.sanitizer.bypassSecurityTrustHtml(normalizedSvg);
     this.registry.set(name, safeSvg);
   }
 
@@ -32,7 +33,7 @@ export class AvIconRegistry {
     Object.entries(icons).forEach(([name, svg]) => this.registerIcon(name, svg));
   }
 
-  /** Retorna o SVG higienizado */
+  /** Retorna o SVG registrado como conteúdo confiável */
   getIcon(name: string): SafeHtml | undefined {
     return this.registry.get(name);
   }
@@ -48,5 +49,15 @@ export class AvIconRegistry {
       name,
       svg: this.registry.get(name)!,
     }));
+  }
+
+  private normalizeSvg(svgContent: string): string {
+    const normalizedSvg = svgContent.trim();
+
+    if (!/^<svg(?:\s|>)/i.test(normalizedSvg)) {
+      throw new Error('An icon must be registered as an SVG element.');
+    }
+
+    return normalizedSvg;
   }
 }
