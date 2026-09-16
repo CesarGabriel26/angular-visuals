@@ -1,64 +1,131 @@
-# AngularVisuals
+# Angular Visuals
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.0.
+Biblioteca Angular de componentes visuais standalone, com paleta inspirada no Tailwind, tema claro/escuro por tokens CSS e registro interno de ícones SVG.
 
-## Code scaffolding
+## Como usar
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Importe os estilos globais uma vez na aplicação consumidora:
 
-```bash
-ng generate component component-name
+```css
+@import "angular-visuals/styles/angular-visuals.css";
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Registre a configuração no `ApplicationConfig`:
 
-```bash
-ng generate --help
+```ts
+import { provideAngularVisuals } from 'angular-visuals';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideAngularVisuals({
+      theme: {
+        mode: 'system',
+        defaultVariant: 'orange',
+      },
+    }),
+  ],
+};
 ```
 
-## Building
+## Estrutura Atual
 
-To build the library, run:
+### Components
+
+Componentes já presentes na lib:
+
+| Categoria | Componentes |
+| --- | --- |
+| Base | `AvBadge`, `AvButton`, `AvIcon` |
+| Forms | `AvForm`, `AvInput`, `AvSelect`, `AvMultiSelect`, `AvCheckbox`, `AvCurrencyInput`, `AvDateTimePicker`, `AvSwitch`, `AvSlider`, `AvFileUpload`, `AvTextarea`|
+| Layout e dados | `AvGrid`, `AvTable`, `AvPaginator` |
+| Navegação | `AvTabs`, `AvTab`, `AvStepper`, `AvStep` |
+| Feedback | `AvProgressBar`, `AvProgressBarCircle` |
+| Mídia | `AvCarousel`, `AvCarouselItem` |
+
+### Primitives
+
+Primitives já presentes:
+
+- `AvText`: texto animado com transições `fade` e `slide`, útil para estados curtos como nomes de arquivos, contadores e carregamento.
+
+Sugestões futuras:
+
+- `AvBox`, `AvStack`, `AvInline`, `AvCluster`, `AvCenter`
+- `AvHeading`, `AvVisuallyHidden`
+- `AvDivider`, `AvSpacer`, `AvPortal`
+- `AvOverlay`, `AvFocusTrap`, `AvClickOutside`
+
+### Services
+
+Serviços já presentes:
+
+- `ThemeService`: controla `light`, `dark` e `system`, aplicando `data-av-theme` no `document.documentElement`.
+- `AvIconRegistry`: registra SVGs padrão da lib e permite adicionar novos ícones em runtime.
+
+O projeto já registra SVGs padrão automaticamente, incluindo ícones comuns e loaders animados.
+
+```ts
+import { AvIconRegistry } from 'angular-visuals';
+
+const icons = iconRegistry.getIcons();
+const iconNames = iconRegistry.getIconNames();
+
+iconRegistry.registerIcon('custom-icon', '<svg>...</svg>');
+```
+
+`getIcons()` retorna uma lista de `{ name, svg }`, útil para construir um icon picker.
+
+## Componentes Que Fazem Sentido Adicionar Depois
+
+Formulários:
+- `AvRadioGroup`
+- `AvDateRangePicker`
+- `AvCombobox`
+
+Overlays:
+
+- `AvDialog`
+- `AvDrawer`
+- `AvPopover`
+- `AvTooltip`
+- `AvDropdownMenu`
+- `AvCommandPalette`
+
+Feedback:
+
+- `AvAlert`
+- `AvToast`
+- `AvSkeleton`
+- `AvSpinner`
+- `AvEmptyState`
+
+Dados e navegação:
+
+- `AvAccordion`
+- `AvBreadcrumb`
+- `AvTimeline`
+- `AvTreeView`
+- `AvDataTable` com sorting/filtering embutido
+
+Serviços futuros:
+
+- `ToastService`
+- `OverlayService`
+- `BreakpointService`
+- `IconPickerService`
+- helpers de forms para erros e máscaras
+
+## Build
 
 ```bash
 ng build angular-visuals
 ```
 
-This command will compile your project, and the build artifacts will be placed in the `dist/` directory.
+Os artefatos são gerados em `dist/angular-visuals`.
 
-### Publishing the Library
-
-Once the project is built, you can publish your library by following these steps:
-
-1. Navigate to the `dist` directory:
-
-   ```bash
-   cd dist/angular-visuals
-   ```
-
-2. Run the `npm publish` command to publish your library to the npm registry:
-   ```bash
-   npm publish
-   ```
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Publicação
 
 ```bash
-ng test
+cd dist/angular-visuals
+npm publish
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

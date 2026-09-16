@@ -1,0 +1,55 @@
+<div class="av-stepper" [ngStyle]="themeVars()">
+  <div class="av-stepper__header">
+    @for (item of items(); track $index) {
+      <div
+        class="av-stepper__item"
+        [class.av-stepper__item--stretch]="$index + 1 < items().length"
+      >
+        <div class="av-stepper__row">
+          <button
+            type="button"
+            (click)="changeTo($index)"
+            class="av-stepper__bullet"
+            [class.av-stepper__bullet--clickable]="canSetStep()"
+            [class.av-stepper__bullet--active]="isActive($index)"
+            [class.av-stepper__bullet--done]="isDone($index)"
+            [class.av-stepper__bullet--error]="item.hasError()"
+            [disabled]="!canSetStep() && !isActive($index)"
+            [attr.aria-current]="isActive($index) ? 'step' : null"
+          >
+            @if (item.hasError()) {
+              <span av-icon name="close" size="sm"></span>
+            } @else if (isDone($index)) {
+              <span av-icon name="check" size="sm"></span>
+            } @else if (item.icon()) {
+              <span av-icon [name]="item.icon()" size="sm"></span>
+            } @else {
+              {{ $index + 1 }}
+            }
+          </button>
+
+          <div
+            class="av-stepper__line"
+            [class.av-stepper__line--hidden]="$index + 1 >= items().length"
+          >
+            <div class="av-stepper__line-track">
+              <div
+                class="av-stepper__line-fill"
+                [class.av-stepper__line-fill--complete]="isDone($index)"
+                [class.av-stepper__line-fill--error]="item.hasError()"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="av-stepper__caption">
+          <span>{{ item.title() }}</span>
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="av-stepper__content" [class.av-stepper__content--hidden]="noContent()">
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+:host {
+  display: inline-block;
+}
+
+.av-progress-circle {
+  color: var(--av-color-text);
+  position: relative;
+}
+
+.av-progress-circle__svg {
+  display: block;
+  height: 100%;
+  transform: rotate(-90deg);
+  width: 100%;
+}
+
+.av-progress-circle__track {
+  stroke: var(--av-progress-circle-track);
+}
+
+.av-progress-circle__fill {
+  stroke: var(--av-progress-circle-fill);
+  transition:
+    stroke .2s ease,
+    stroke-dashoffset .35s ease;
+}
+
+.av-progress-circle__fill--striped {
+  animation: av-progress-circle-pulse 1.2s ease-in-out infinite;
+}
+
+.av-progress-circle__label {
+  color: var(--av-progress-circle-fill);
+  font-size: 1.25rem;
+  font-weight: 700;
+  left: 50%;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes av-progress-circle-pulse {
+  50% {
+    opacity: .72;
+  }
+}

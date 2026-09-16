@@ -1,0 +1,82 @@
+<div
+  class="av-slider"
+  [class.av-slider--disabled]="isDisabled()"
+  [ngStyle]="themeVars()"
+>
+  @if (label() || showValue()) {
+    <div class="av-slider__header">
+      @if (label()) {
+        <label class="av-slider__label">{{ label() }}</label>
+      }
+
+      @if (showValue()) {
+        <span class="av-slider__value">{{ displayValue() }}</span>
+      }
+    </div>
+  }
+
+  <div class="av-slider__track" (pointerdown)="onTrackPointerDown($event)">
+    <span class="av-slider__rail"></span>
+    <span
+      class="av-slider__fill"
+      [style.left.%]="fillLeft()"
+      [style.width.%]="fillWidth()"
+    ></span>
+
+    <input
+      class="av-slider__native av-slider__native--lower"
+      type="range"
+      [attr.aria-label]="range() ? lowerAriaLabel() : ariaLabel()"
+      [attr.aria-valuetext]="formatValue(lowerValue())"
+      [disabled]="isDisabled()"
+      [max]="safeMax()"
+      [min]="safeMin()"
+      [step]="safeStep()"
+      [value]="lowerValue()"
+      (blur)="markTouched()"
+      (change)="markTouched()"
+      (focus)="activeThumb.set('lower')"
+      (input)="onInput('lower', $event)"
+    />
+
+    @if (range()) {
+      <input
+        class="av-slider__native av-slider__native--upper"
+        type="range"
+        [attr.aria-label]="upperAriaLabel()"
+        [attr.aria-valuetext]="formatValue(upperValue())"
+        [disabled]="isDisabled()"
+        [max]="safeMax()"
+        [min]="safeMin()"
+        [step]="safeStep()"
+        [value]="upperValue()"
+        (blur)="markTouched()"
+        (change)="markTouched()"
+        (focus)="activeThumb.set('upper')"
+        (input)="onInput('upper', $event)"
+      />
+    }
+
+    <span
+      class="av-slider__thumb av-slider__thumb--lower"
+      [class.av-slider__thumb--active]="activeThumb() === 'lower'"
+      [style.left.%]="lowerPercent()"
+    >
+      @if (thumbLabel()) {
+        <span class="av-slider__bubble">{{ formatValue(lowerValue()) }}</span>
+      }
+    </span>
+
+    @if (range()) {
+      <span
+        class="av-slider__thumb av-slider__thumb--upper"
+        [class.av-slider__thumb--active]="activeThumb() === 'upper'"
+        [style.left.%]="upperPercent()"
+      >
+        @if (thumbLabel()) {
+          <span class="av-slider__bubble">{{ formatValue(upperValue()) }}</span>
+        }
+      </span>
+    }
+  </div>
+</div>

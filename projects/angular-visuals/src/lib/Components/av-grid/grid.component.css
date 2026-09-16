@@ -1,0 +1,45 @@
+:host {
+  align-items: start;
+  display: grid;
+  gap: var(--av-grid-gap, .5rem);
+  grid-template-columns: repeat(var(--av-grid-cols-xs, 1), minmax(0, 1fr));
+  justify-content: start;
+  width: 100%;
+}
+
+:host(.av-grid--empty) {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 8rem;
+}
+
+@media (min-width: 640px) {
+  :host {
+    grid-template-columns: repeat(var(--av-grid-cols-sm, var(--av-grid-cols-xs, 1)), minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  :host {
+    grid-template-columns: repeat(var(--av-grid-cols-md, var(--av-grid-cols-sm, 1)), minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  :host {
+    grid-template-columns: repeat(var(--av-grid-cols-lg, var(--av-grid-cols-md, 1)), minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  :host {
+    grid-template-columns: repeat(var(--av-grid-cols-xl, var(--av-grid-cols-lg, 1)), minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1536px) {
+  :host {
+    grid-template-columns: repeat(var(--av-grid-cols-2xl, var(--av-grid-cols-xl, 1)), minmax(0, 1fr));
+  }
+}

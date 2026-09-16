@@ -1,0 +1,49 @@
+<nav class="av-paginator" aria-label="Paginação">
+  <button
+    av-button
+    [variant]="variant()"
+    type="button"
+    (click)="changePage(0)"
+    [disabled]="!canGoBack()"
+    aria-label="Primeira página"
+  >
+    <span av-icon name="double_arrow_left"></span>
+  </button>
+
+  <button
+    av-button
+    [variant]="variant()"
+    type="button"
+    (click)="changePage(currentPage() - 1)"
+    [disabled]="!canGoBack()"
+    aria-label="Página anterior"
+  >
+    <span av-icon name="arrow_left" size="sm"></span>
+  </button>
+
+  <span class="av-paginator__page">
+    Página {{ safeTotalPages() === 0 ? 0 : currentPage() + 1 }} de {{ safeTotalPages() }}
+  </span>
+
+  <button
+    av-button
+    [variant]="variant()"
+    type="button"
+    (click)="changePage(currentPage() + 1)"
+    [disabled]="!canGoForward()"
+    aria-label="Próxima página"
+  >
+    <span av-icon name="arrow_right" size="sm"></span>
+  </button>
+
+  <button
+    av-button
+    [variant]="variant()"
+    type="button"
+    (click)="changePage(safeTotalPages() - 1)"
+    [disabled]="!canGoForward()"
+    aria-label="Última página"
+  >
+    <span av-icon name="double_arrow_right"></span>
+  </button>
+</nav>

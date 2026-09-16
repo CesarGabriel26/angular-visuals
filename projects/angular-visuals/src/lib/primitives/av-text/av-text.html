@@ -1,0 +1,24 @@
+<span
+  class="av-text"
+  [class.av-text--animating]="animating()"
+  [class.av-text--fade]="animation() === 'fade'"
+  [class.av-text--slide]="animation() === 'slide'"
+  [style.--av-text-duration.ms]="duration()"
+>
+  <span
+    class="av-text__measure"
+    aria-hidden="true"
+  >
+    {{ current() }}
+  </span>
+
+  @if (previous() !== null) {
+    <span class="av-text__value av-text__value--old">
+      {{ previous() }}
+    </span>
+  }
+
+  <span class="av-text__value av-text__value--new">
+    {{ current() }}
+  </span>
+</span>

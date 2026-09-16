@@ -1,0 +1,46 @@
+<div class="av-carousel" [ngStyle]="themeVars()">
+  @if (controls() && canNavigate()) {
+    <button
+      type="button"
+      (click)="previous()"
+      class="av-carousel__control av-carousel__control--left"
+      aria-label="Slide anterior"
+    >
+      <span av-icon name="chevron_left" class="av-carousel__control-icon"></span>
+    </button>
+
+    <button
+      type="button"
+      (click)="next()"
+      class="av-carousel__control av-carousel__control--right"
+      aria-label="Próximo slide"
+    >
+      <span av-icon name="chevron_right" class="av-carousel__control-icon"></span>
+    </button>
+  }
+
+  <div
+    #content
+    class="av-carousel__content"
+    [class.av-carousel__content--scroll]="transition() === 'scroll'"
+    [class.av-carousel__content--fade]="transition() === 'fade'"
+  >
+    <ng-content></ng-content>
+  </div>
+
+  @if (dots() && canNavigate()) {
+    <div class="av-carousel__dots-wrap">
+      <div class="av-carousel__dots">
+        @for (item of items(); track $index) {
+          <button
+            type="button"
+            (click)="changeTo($index)"
+            class="av-carousel__dot"
+            [class.av-carousel__dot--active]="currentItem() === $index"
+            [attr.aria-label]="'Ir para slide ' + ($index + 1)"
+          ></button>
+        }
+      </div>
+    </div>
+  }
+</div>

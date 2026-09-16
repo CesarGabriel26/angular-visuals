@@ -10,8 +10,8 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAngularVisuals({
       theme: {
-        mode: 'light',
-        defaultVariant: 'red',
+        mode: 'system',
+        defaultVariant: 'orange',
       }
     })
   ],

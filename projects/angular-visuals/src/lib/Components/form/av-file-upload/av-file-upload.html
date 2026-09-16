@@ -1,0 +1,98 @@
+<div
+  class="av-file-upload"
+  [class.av-file-upload--disabled]="isDisabled()"
+  [class.av-file-upload--dragging]="dragging()"
+  [ngStyle]="themeVars()"
+>
+  @if (label()) {
+    <label class="av-file-upload__label" [for]="hostId()">
+      {{ label() }}
+    </label>
+  }
+
+  <input
+    #fileInput
+    class="av-file-upload__input"
+    type="file"
+    [id]="hostId()"
+    [attr.name]="name() || null"
+    [attr.accept]="accept() || null"
+    [attr.capture]="capture() || null"
+    [attr.multiple]="multiple() ? '' : null"
+    [disabled]="isDisabled()"
+    (change)="onNativeChange($event)"
+    (blur)="markTouched()"
+  />
+
+  <label
+    class="av-file-upload__dropzone"
+    [for]="hostId()"
+    [attr.aria-disabled]="isDisabled()"
+    tabindex="0"
+    (dragover)="onDragOver($event)"
+    (dragleave)="onDragLeave()"
+    (drop)="onDrop($event)"
+    (keydown.enter)="openPicker($event)"
+    (keydown.space)="openPicker($event)"
+  >
+    <span class="av-file-upload__mark" aria-hidden="true">
+      <span class="av-file-upload__mark-line"></span>
+    </span>
+
+    <span class="av-file-upload__content">
+      <span class="av-file-upload__headline">
+        <av-text [value]="displayText()" animation="slide" />
+      </span>
+
+      <span class="av-file-upload__helper">
+        <av-text [value]="supportingText()" animation="slide" [duration]="180" />
+      </span>
+    </span>
+
+    <span class="av-file-upload__action">
+      {{ browseText() }}
+    </span>
+  </label>
+
+  @if (rejectionMessage() || errorMessage()) {
+    <span class="av-file-upload__error">
+      {{ rejectionMessage() || errorMessage() }}
+    </span>
+  }
+
+  @if (showList() && files().length) {
+    <ul class="av-file-upload__list">
+      @for (file of files(); track file.id) {
+        <li class="av-file-upload__item">
+          <span class="av-file-upload__file">
+            <span class="av-file-upload__file-name">{{ file.name }}</span>
+            <span class="av-file-upload__file-meta">{{ file.readableSize }} · {{ file.extension || file.type }}</span>
+          </span>
+
+          @if (clearable()) {
+            <button
+              type="button"
+              class="av-file-upload__remove"
+              [disabled]="isDisabled()"
+              [attr.aria-label]="'Remover ' + file.name"
+              (click)="removeFile(file.id)"
+            >
+              ×
+            </button>
+          }
+        </li>
+      }
+    </ul>
+  }
+
+  @if (clearable() && files().length > 1) {
+    <button
+      type="button"
+      class="av-file-upload__clear"
+      [disabled]="isDisabled()"
+      (click)="clear()"
+    >
+      Limpar arquivos
+    </button>
+  }
+</div>

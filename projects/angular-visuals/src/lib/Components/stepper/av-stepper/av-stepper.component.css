@@ -1,0 +1,128 @@
+:host {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.av-stepper {
+  color: var(--av-color-text);
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  height: 100%;
+  width: 100%;
+}
+
+.av-stepper__header,
+.av-stepper__row {
+  align-items: center;
+  display: flex;
+}
+
+.av-stepper__item {
+  display: flex;
+  flex-direction: column;
+  min-width: 2.5rem;
+}
+
+.av-stepper__item--stretch,
+.av-stepper__line {
+  flex: 1;
+}
+
+.av-stepper__bullet {
+  align-items: center;
+  aspect-ratio: 1;
+  background: var(--av-color-surface);
+  border: 2px solid var(--av-color-border);
+  border-radius: var(--av-radius-full);
+  box-shadow: var(--av-shadow-control);
+  color: var(--av-color-text-muted);
+  display: flex;
+  font-weight: 700;
+  height: 2.5rem;
+  justify-content: center;
+  transition:
+    background-color .2s ease,
+    border-color .2s ease,
+    color .2s ease,
+    transform .2s ease;
+  z-index: 1;
+}
+
+.av-stepper__bullet--clickable {
+  cursor: pointer;
+}
+
+.av-stepper__bullet:disabled {
+  cursor: default;
+}
+
+.av-stepper__bullet--active {
+  background: var(--av-stepper-accent-soft);
+  border-color: var(--av-stepper-accent);
+  color: var(--av-stepper-accent);
+}
+
+.av-stepper__bullet--done {
+  background: var(--av-stepper-accent);
+  border-color: var(--av-stepper-accent);
+  color: var(--av-white);
+}
+
+.av-stepper__bullet--error {
+  background: var(--av-color-danger-soft);
+  border-color: var(--av-color-danger);
+  color: var(--av-color-danger);
+}
+
+.av-stepper__line {
+  height: .5rem;
+  position: relative;
+}
+
+.av-stepper__line--hidden,
+.av-stepper__content--hidden {
+  display: none;
+}
+
+.av-stepper__line-track {
+  background: var(--av-stepper-track);
+  border-radius: var(--av-radius-full);
+  height: 100%;
+  overflow: hidden;
+  transform: translateX(-5%);
+  width: 110%;
+}
+
+.av-stepper__line-fill {
+  background: var(--av-stepper-accent);
+  height: 100%;
+  transform: translateX(-100%);
+  transition: transform .2s ease, background-color .2s ease;
+  width: 100%;
+}
+
+.av-stepper__line-fill--complete {
+  transform: translateX(0);
+}
+
+.av-stepper__line-fill--error {
+  background: var(--av-color-danger);
+}
+
+.av-stepper__caption {
+  color: var(--av-color-text-muted);
+  display: flex;
+  flex-direction: column;
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-top: .375rem;
+}
+
+.av-stepper__content {
+  height: 100%;
+  min-height: 0;
+  width: 100%;
+}

@@ -1,0 +1,38 @@
+<div class="av-text-area"
+[style.--av-text-area-accent]="`var(--av-${variant()}-500)`"
+[style.--av-text-area-accent-dark]="`var(--av-${variant()}-400)`"
+>
+  @if (label()) {
+    <label class="av-text-area__label">
+      {{ label() }}
+    </label>
+  }
+
+  <div class="av-text-area__field">
+    @if (icon() || loading()) {
+      <div class="av-text-area__icon">
+        <span av-icon [name]="loading()? loadingIcon()!: icon()!"></span>
+      </div>
+    }
+
+    <textarea
+      #inputRef
+      [value]="value"
+      [placeholder]="placeholder()"
+      [disabled]="disabled"
+      (input)="onInput($event)"
+      (blur)="onTouched()"
+      class="av-text-area__control"
+      [class.av-text-area__control--with-icon]="icon()"
+      [class.av-text-area__control--without-icon]="!icon()"
+      [ngClass]="controlClasses"
+    >
+    </textarea>
+  </div>
+
+  @if (isInvalid || errorMessage()) {
+    <span class="av-text-area__error">
+      {{ errorMessage() || 'Campo inválido' }}
+    </span>
+  }
+</div>

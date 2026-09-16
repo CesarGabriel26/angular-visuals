@@ -3,6 +3,10 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { loaderSeed } from '../../utils/loader-icon-seed';
 import { iconSeed } from '../../utils/icons-seed';
 
+export interface AvRegisteredIcon {
+  name: string;
+  svg: SafeHtml;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +35,18 @@ export class AvIconRegistry {
   /** Retorna o SVG higienizado */
   getIcon(name: string): SafeHtml | undefined {
     return this.registry.get(name);
+  }
+
+  /** Retorna os nomes de todos os ícones registrados */
+  getIconNames(): string[] {
+    return Array.from(this.registry.keys()).sort((a, b) => a.localeCompare(b));
+  }
+
+  /** Retorna todos os ícones registrados, útil para catálogos e icon pickers */
+  getIcons(): AvRegisteredIcon[] {
+    return this.getIconNames().map((name) => ({
+      name,
+      svg: this.registry.get(name)!,
+    }));
   }
 }

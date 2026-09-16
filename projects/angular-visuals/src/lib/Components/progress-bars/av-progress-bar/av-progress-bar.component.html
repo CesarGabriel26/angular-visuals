@@ -1,0 +1,32 @@
+<div
+  class="av-progress"
+  [ngStyle]="themeVars()"
+  role="progressbar"
+  [attr.aria-valuenow]="percentLabel()"
+  aria-valuemin="0"
+  aria-valuemax="100"
+>
+  <div
+    class="av-progress__track"
+    [style.height.px]="height()"
+  >
+    <div
+      class="av-progress__fill"
+      [class.av-progress__fill--gradient]="gradient()"
+      [class.av-progress__fill--striped]="striped()"
+      [style.width.%]="percentValue()"
+    >
+      @if (showPercent() && percentPos() === 'fill') {
+        <span class="av-progress__text av-progress__text--fill" [style.font-size.px]="height() / 1.5">
+          {{ percentLabel() }}%
+        </span>
+      }
+    </div>
+
+    @if (showPercent() && percentPos() === 'center') {
+      <span class="av-progress__text av-progress__text--center" [style.font-size.px]="height() / 1.5">
+        {{ percentLabel() }}%
+      </span>
+    }
+  </div>
+</div>

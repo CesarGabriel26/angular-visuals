@@ -1,0 +1,63 @@
+<div class="av-table">
+  <div class="av-table__scroll">
+    <table class="av-table__table">
+      @if (headerTemplate()) {
+        <thead class="av-table__header">
+          <ng-container *ngTemplateOutlet="headerTemplate()!"></ng-container>
+        </thead>
+      }
+
+      <tbody class="av-table__body">
+        @if (bodyTemplate()) {
+          @for (item of value(); track $index) {
+            <ng-container *ngTemplateOutlet="bodyTemplate()!; context: { $implicit: item, index: $index }"></ng-container>
+          } @empty {
+            <tr>
+              <td colspan="100%" class="av-table__empty">
+                {{ emptyMessage() }}
+              </td>
+            </tr>
+          }
+        } @else {
+          <tr>
+            <td colspan="100%" class="av-table__empty">
+              {{ emptyMessage() }}
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  @if (paginator()) {
+    <div class="av-table__pagination">
+      @if (currentPageLabel() !== '') {
+        <div class="av-table__page-label">
+          <span>{{ formattedPageLabel() }}</span>
+        </div>
+      }
+
+      <div class="av-table__pagination-controls">
+        @if (rowsPerPageOptions().length > 0) {
+          <div class="av-table__page-size">
+            <span>Itens por página:</span>
+            <av-select
+              [data]="pageSizeOptions()"
+              [searchable]="false"
+              [value]="pageSize()"
+              [variant]="variant()"
+              (valueChange)="changePageSize($event)"
+            />
+          </div>
+        }
+
+        <av-paginator
+          [variant]="variant()"
+          [pageIndex]="pageIndex()"
+          [totalPages]="totalPages()"
+          (pageChanged)="changePage($event)"
+        />
+      </div>
+    </div>
+  }
+</div>

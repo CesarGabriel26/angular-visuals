@@ -1,0 +1,32 @@
+<div class="av-tabs" [ngStyle]="themeVars()">
+  <div
+    class="av-tabs__header"
+    role="tablist"
+    [style.grid-template-columns]="'repeat(' + (items().length || 1) + ', minmax(0, 1fr))'"
+  >
+    @for (item of items(); track $index) {
+      <button
+        type="button"
+        role="tab"
+        class="av-tabs__tab"
+        [class.av-tabs__tab--active]="currentItem() === $index"
+        [class.av-tabs__tab--inactive]="currentItem() !== $index"
+        [class.av-tabs__tab--disabled]="item.disabled()"
+        [disabled]="item.disabled()"
+        [attr.aria-selected]="currentItem() === $index"
+        (click)="selectTab($index, item)"
+      >
+        @if (item.icon()) {
+          <span av-icon [name]="item.icon()" size="lg"></span>
+        } @else {
+          <span>{{$index}}</span>
+        }
+        <span class="av-tabs__label">{{ labelFor(item) }}</span>
+      </button>
+    }
+  </div>
+
+  <div class="av-tabs__content">
+    <ng-content></ng-content>
+  </div>
+</div>

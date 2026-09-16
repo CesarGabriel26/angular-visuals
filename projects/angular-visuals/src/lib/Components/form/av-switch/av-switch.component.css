@@ -1,0 +1,52 @@
+.av-switch {
+  --av-switch-width: 40px;
+  --av-switch-height: 22px;
+  --av-switch-padding: 2px;
+  --av-switch-thumb-size: 18px;
+
+  display: inline-flex;
+  position: relative;
+
+  width: var(--av-switch-width);
+  height: var(--av-switch-height);
+
+  padding: var(--av-switch-padding);
+
+  align-items: center;
+
+  border: none;
+  border-radius: var(--av-switch-rounded);
+
+  background-color: var(--av-color-surface-muted);
+
+  cursor: pointer;
+
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.av-switch-thumb {
+  width: var(--av-switch-thumb-size);
+  height: var(--av-switch-thumb-size);
+
+  border-radius: var(--av-switch-rounded);
+
+  background-color: var(--av-white);
+
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+
+  transform: translateX(0);
+
+  transition:
+    transform 180ms cubic-bezier(.2, 0, 0, 1),
+    background-color 180ms ease;
+}
+
+.av-switch[data-checked="true"] {
+  background-color: var(--av-switch-active-bg);
+}
+
+.av-switch[data-checked="true"] .av-switch-thumb {
+  transform: translateX(calc(var(--av-switch-width) - var(--av-switch-thumb-size) - var(--av-switch-padding) * 2));
+}

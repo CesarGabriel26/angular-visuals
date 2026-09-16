@@ -1,0 +1,11 @@
+<button
+  type="button"
+  class="av-switch"
+  [ngStyle]="themeVars()"
+  [attr.aria-checked]="checked()"
+  [attr.data-checked]="checked()"
+  [disabled]="disabled()"
+  (click)="toggle()"
+>
+  <div class="av-switch-thumb"></div>
+</button>
