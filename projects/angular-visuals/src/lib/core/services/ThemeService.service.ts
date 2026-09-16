@@ -7,6 +7,7 @@ import { AvThemeMode } from '@av/types/theme';
 })
 export class ThemeService {
   private config = inject(VISUALS_CONFIG);
+  private readonly colorIntensities = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] as const;
 
   readonly mode = signal<AvThemeMode>(this.config.theme.mode);
   readonly systemDark = signal(false);
@@ -24,6 +25,7 @@ export class ThemeService {
     const media = window.matchMedia('(prefers-color-scheme: dark)');
 
     this.systemDark.set(media.matches);
+    this.setPrimaryColorVariables();
 
     media.addEventListener('change', event => {
       this.systemDark.set(event.matches);
@@ -43,5 +45,14 @@ export class ThemeService {
 
   setMode(mode: AvThemeMode) {
     this.mode.set(mode);
+  }
+
+  private setPrimaryColorVariables(): void {
+    const root = document.documentElement;
+    const variant = this.config.theme.defaultVariant;
+
+    for (const intensity of this.colorIntensities) {
+      root.style.setProperty(`--av-primary-${intensity}`, `var(--av-${variant}-${intensity})`);
+    }
   }
 }

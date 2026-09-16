@@ -1,0 +1,255 @@
+:host {
+  display: block;
+  height: 100dvh;
+  width: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+:host ::ng-deep av-inline.docs-shell {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--av-color-background);
+  color: var(--av-color-text);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border-radius: 0.7rem;
+  background: var(--av-primary-500);
+  color: white;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.brand strong,
+.brand small {
+  display: block;
+}
+
+.brand strong {
+  font-size: 0.94rem;
+}
+
+.brand small {
+  color: var(--av-color-text-muted);
+  font-size: 0.68rem;
+  margin-top: 0.15rem;
+}
+
+.nav-section-label {
+  margin: 1.5rem 0 0.45rem 0.8rem;
+  color: var(--av-color-text-muted);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.version {
+  padding: 0.8rem;
+  color: var(--av-color-text-muted);
+  font-size: 0.7rem;
+}
+
+.docs-main {
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 2.2rem clamp(1.25rem, 4vw, 4rem) 4rem;
+  overflow-y: auto;
+}
+
+.topbar,
+.section-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.eyebrow,
+.panel-kicker {
+  color: var(--av-white);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  margin-top: 0.45rem;
+  font-size: clamp(1.55rem, 3vw, 2.3rem);
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  margin-top: 0.4rem;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  letter-spacing: -0.04em;
+}
+
+.theme-toggle,
+.primary-action,
+.secondary-action {
+  border: 1px solid var(--av-color-border-soft);
+  border-radius: 0.55rem;
+  padding: 0.7rem 0.9rem;
+  color: inherit;
+  font: inherit;
+  font-size: 0.8rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.theme-toggle {
+  background: var(--av-color-surface);
+}
+
+.welcome-panel {
+  position: relative;
+  overflow: hidden;
+  margin-top: 2.8rem;
+  padding: clamp(1.6rem, 5vw, 3.4rem);
+  border-radius: 1rem;
+  background: linear-gradient(120deg, var(--av-primary-700), var(--av-primary-500));
+  color: white;
+}
+
+.welcome-panel::after {
+  content: '';
+  position: absolute;
+  width: 18rem;
+  height: 18rem;
+  right: -6rem;
+  bottom: -9rem;
+  border: 2rem solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.welcome-panel h2 {
+  max-width: 38rem;
+  margin-top: 0.65rem;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+}
+
+.welcome-panel p {
+  max-width: 40rem;
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.65;
+}
+
+.panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.7rem;
+}
+
+.primary-action {
+  background: white;
+  color: var(--av-primary-700);
+  font-weight: 700;
+}
+
+.secondary-action {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: white;
+}
+
+.content-section {
+  margin-top: 3.5rem;
+}
+
+.section-count {
+  color: var(--av-color-text-muted);
+  font-size: 0.75rem;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+
+.overview-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 14rem;
+  padding: 1.3rem;
+  border: 1px solid var(--av-color-border-soft);
+  border-radius: 0.75rem;
+  background: var(--av-color-surface);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.overview-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--av-primary-400);
+}
+
+.card-icon {
+  color: var(--av-primary-500);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.overview-card h3 {
+  margin-top: 2.6rem;
+  font-size: 1.1rem;
+}
+
+.overview-card p {
+  margin-top: 0.55rem;
+  color: var(--av-color-text-muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.card-link {
+  margin-top: auto;
+  padding-top: 1.2rem;
+  color: var(--av-primary-600);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .docs-main {
+    padding-top: 1.5rem;
+  }
+
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-panel {
+    margin-top: 2rem;
+  }
+}

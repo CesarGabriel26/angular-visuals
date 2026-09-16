@@ -1,0 +1,51 @@
+@if (href() && !disabled()) {
+  <a
+    class="av-nav-link"
+    [ngStyle]="themeVars()"
+    [class.av-nav-link--active]="active()"
+    [attr.aria-current]="active() ? 'page' : null"
+    [href]="href()"
+    [attr.rel]="relValue()"
+    [attr.target]="target() || null"
+    (click)="handleClick($event)"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </a>
+} @else {
+  <button
+    type="button"
+    class="av-nav-link"
+    [ngStyle]="themeVars()"
+    [class.av-nav-link--active]="active()"
+    [class.av-nav-link--disabled]="disabled()"
+    [disabled]="disabled()"
+    [attr.aria-current]="active() ? 'page' : null"
+    (click)="handleClick($event)"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </button>
+}
+
+<ng-template #content>
+  @if (icon()) {
+    <span class="av-nav-link__icon" av-icon [name]="icon()" size="md"></span>
+  }
+
+  <span class="av-nav-link__body">
+    @if (label()) {
+      <span class="av-nav-link__label">{{ label() }}</span>
+    } @else {
+      <span class="av-nav-link__label">
+        <ng-content></ng-content>
+      </span>
+    }
+
+    @if (description()) {
+      <span class="av-nav-link__description">{{ description() }}</span>
+    }
+  </span>
+
+  @if (badge() !== null && badge() !== undefined) {
+    <span class="av-nav-link__badge">{{ badge() }}</span>
+  }
+</ng-template>

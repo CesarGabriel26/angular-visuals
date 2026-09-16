@@ -2,3 +2,54 @@
 @import "./animations.css";
 @import "./typography.css";
 @import "./theme.css";
+
+
+
+.bg-content {
+  background-color: var(--av-color-bg);
+  color: var(--av-color-text);
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+html,
+body {
+  width: 100dvw;
+  height: 100dvh;
+}
+
+
+*::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--av-primary-200);
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--av-primary-300);
+  border-radius: 3px;
+}
+
+[data-av-theme="dark"] {
+  *::-webkit-scrollbar-track {
+    background: var(--av-primary-950);
+    border-radius: 3px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: var(--av-primary-900);
+    border-radius: 3px;
+  }
+
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--av-primary-900) var(--av-primary-950);
+  }
+}

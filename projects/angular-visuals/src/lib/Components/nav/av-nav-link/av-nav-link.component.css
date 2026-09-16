@@ -1,0 +1,98 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.av-nav-link {
+  align-items: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--av-radius-md);
+  box-sizing: border-box;
+  color: var(--av-nav-link-text, var(--av-color-text-muted));
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  gap: .625rem;
+  min-height: 2.5rem;
+  min-width: 0;
+  padding: var(--av-nav-link-padding-y, .625rem) var(--av-nav-link-padding-x, .75rem);
+  padding-left: var(--av-nav-link-padding-left, var(--av-nav-link-padding-x, .75rem));
+  text-align: left;
+  text-decoration: none;
+  transition:
+    background-color .18s ease,
+    border-color .18s ease,
+    color .18s ease,
+    transform .18s ease;
+  width: 100%;
+}
+
+.av-nav-link:hover:not(.av-nav-link--disabled) {
+  background: var(--av-nav-link-accent-soft);
+  color: var(--av-nav-link-accent-hover);
+}
+
+.av-nav-link:active:not(.av-nav-link--disabled) {
+  transform: scale(.99);
+}
+
+.av-nav-link:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--av-nav-link-accent) 24%, transparent);
+  outline: none;
+}
+
+.av-nav-link--active {
+  background: var(--av-nav-link-accent-soft);
+  border-color: color-mix(in srgb, var(--av-nav-link-accent) 28%, transparent);
+  color: var(--av-nav-link-text-active);
+  font-weight: 700;
+}
+
+.av-nav-link--disabled {
+  cursor: not-allowed;
+  opacity: .52;
+}
+
+.av-nav-link__icon {
+  color: currentColor;
+  flex: 0 0 auto;
+}
+
+.av-nav-link__body {
+  display: grid;
+  flex: 1;
+  gap: .125rem;
+  min-width: 0;
+}
+
+.av-nav-link__label,
+.av-nav-link__description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.av-nav-link__label {
+  font-size: .875rem;
+  line-height: 1.25;
+}
+
+.av-nav-link__description {
+  color: var(--av-color-text-subtle);
+  font-size: .75rem;
+  line-height: 1.2;
+}
+
+.av-nav-link__badge {
+  background: var(--av-nav-link-accent);
+  border-radius: var(--av-radius-full);
+  color: var(--av-white);
+  flex: 0 0 auto;
+  font-size: .6875rem;
+  font-weight: 700;
+  line-height: 1;
+  min-width: 1.25rem;
+  padding: .25rem .375rem;
+  text-align: center;
+}

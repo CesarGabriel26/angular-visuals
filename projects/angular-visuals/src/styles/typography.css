@@ -11,6 +11,20 @@
   --av-gap-md: 1rem;     /* 16px (Tailwind gap-4) */
   --av-gap-lg: 1.5rem;   /* 24px (Tailwind gap-6) */
   --av-gap-xl: 2rem;     /* 32px (Tailwind gap-8) */
+
+  /* Tamanhos para Avatars (Largura x Altura) */
+  --av-avatar-xs: 1.5rem;   /* 24px  (Tailwind w-6 h-6) */
+  --av-avatar-sm: 2rem;     /* 32px  (Tailwind w-8 h-8) */
+  --av-avatar-md: 2.5rem;   /* 40px  (Tailwind w-10 h-10 - Padrão do mercado) */
+  --av-avatar-lg: 3rem;     /* 48px  (Tailwind w-12 h-12) */
+  --av-avatar-xl: 4rem;     /* 64px  (Tailwind w-16 h-16) */
+
+  /* Tamanho de Fonte (Para Avatars com Iniciais) */
+  --av-avatar-text-xs: 0.75rem;  /* 12px */
+  --av-avatar-text-sm: 0.875rem; /* 14px */
+  --av-avatar-text-md: 1rem;     /* 16px */
+  --av-avatar-text-lg: 1.125rem; /* 18px */
+  --av-avatar-text-xl: 1.5rem;   /* 24px */
 }
 
 .av-text-xs {

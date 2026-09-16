@@ -65,7 +65,7 @@ export class ExampleComponent {}
 | Base | `AvBadge`, `AvButton`, `AvIcon` |
 | Formulários | `AvForm`, `AvInput`, `AvSelect`, `AvMultiSelect`, `AvCheckbox`, `AvCurrencyInput`, `AvDateTimePicker`, `AvSwitch`, `AvSlider`, `AvFileUpload`, `AvTextArea` |
 | Layout e dados | `AvGrid`, `AvTable`, `AvPaginator` |
-| Navegação | `AvTabs`, `AvTab`, `AvStepper`, `AvStep` |
+| Navegação | `AvSidenav`, `AvNavLink`, `AvDropdown`, `AvTabs`, `AvTab`, `AvStepper`, `AvStep` |
 | Feedback | `AvProgressBar`, `AvProgressBarCircle` |
 | Mídia | `AvCarousel`, `AvCarouselItem` |
 | Overlay | `AvTooltip` |
@@ -82,6 +82,24 @@ export class ExampleComponent {}
 
 ```html
 <av-text [text]="status" animation="fade" />
+```
+
+### Navegação lateral
+
+`AvSidenav` cria uma navegação lateral responsiva. Abaixo do breakpoint configurado, ele entra em modo drawer; para habilitar abrir e fechar, use `toggleable` e passe um botão com `#toggleTrigger`.
+
+```html
+<button #toggleTrigger type="button" av-button icon="menu">Menu</button>
+
+<av-sidenav toggleable [toggleTrigger]="toggleTrigger" variant="orange">
+  <av-nav-link label="Início" icon="search" href="/" active />
+  <av-nav-link label="Agenda" icon="calendar_today" href="/agenda" badge="3" />
+
+  <av-dropdown label="Financeiro" icon="payments">
+    <av-nav-link label="Receitas" href="/financeiro/receitas" />
+    <av-nav-link label="Despesas" href="/financeiro/despesas" />
+  </av-dropdown>
+</av-sidenav>
 ```
 
 ## Serviços
@@ -151,33 +169,32 @@ Depois de registrado, o ícone pode ser usado pelos componentes que aceitam nome
 11. `ToastService` — API programática para exibir toasts.
 12. `AvDialog` — base para overlays complexos.
 13. `AvPopover` — conteúdo contextual usando a infraestrutura de overlay.
-14. `AvDropdownMenu` — menu com foco e navegação por teclado.
-15. `AvDrawer` — variação estrutural de diálogo.
+14. `AvDrawer` — variação estrutural de diálogo.
 
 ### Fase 3: Componentes básicos
 
-16. `AvAccordion` — conteúdo expansível.
-17. `AvBreadcrumb` — navegação hierárquica.
-18. `AvRadioGroup` e `AvRadio` — controles de seleção única para completar os forms.
+15. `AvAccordion` — conteúdo expansível.
+16. `AvBreadcrumb` — navegação hierárquica.
+17. `AvRadioGroup` e `AvRadio` — controles de seleção única para completar os forms.
 
 ### Fase 4: Componentes compostos
 
-19. `AvCombobox` — input, overlay, seleção e busca.
-20. `AvDateRangePicker` — evolução do `AvDateTimePicker`.
-21. `AvDataTable` — tabela com ordenação, filtros, seleção, loading, estado vazio e paginação.
+18. `AvCombobox` — input, overlay, seleção e busca.
+19. `AvDateRangePicker` — evolução do `AvDateTimePicker`.
+20. `AvDataTable` — tabela com ordenação, filtros, seleção, loading, estado vazio e paginação.
 
 ### Fase 5: Componentes avançados
 
-22. `AvTimeline` — visualização de eventos em sequência.
-23. `AvTreeView` — árvore com seleção, expansão e teclado.
-24. `AvCommandPalette` — busca e navegação por teclado composta por diálogo, input, ícones e estado vazio.
-25. `AvIconPicker` — catálogo de ícones usando registry, combobox, grid e popover.
+21. `AvTimeline` — visualização de eventos em sequência.
+22. `AvTreeView` — árvore com seleção, expansão e teclado.
+23. `AvCommandPalette` — busca e navegação por teclado composta por diálogo, input, ícones e estado vazio.
+24. `AvIconPicker` — catálogo de ícones usando registry, combobox, grid e popover.
 
 ### Fase 6: Conveniências
 
-26. `AvHeading` — tipografia semântica conveniente.
-27. `AvBox` — primitive de composição para casos simples.
-28. `AvCenter` — centralização de conteúdo.
-29. `AvSpacer` — espaçamento explícito em layouts.
+25. `AvHeading` — tipografia semântica conveniente.
+26. `AvBox` — primitive de composição para casos simples.
+27. `AvCenter` — centralização de conteúdo.
+28. `AvSpacer` — espaçamento explícito em layouts.
 
 Componentes adicionais que podem entrar antes da versão `1.0`, conforme as necessidades dos consumidores: `AvAvatar`, `AvChip` ou `AvTag`, `AvButtonGroup`, `AvInputGroup` e `AvKbd`.

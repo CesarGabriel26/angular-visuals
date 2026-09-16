@@ -1,151 +1,98 @@
-<div class="bg-content min-h-dvh">
-  <div class="mx-auto flex max-w-3xl flex-col gap-4 p-6">
-    <div class="flex items-center gap-3">
-      <span av-badge>0</span>
-
-      <button
-        av-button
-        av-tooltip="Tooltip usando CDK Overlay"
-        avTooltipPosition="bottom"
-      >
-        Tooltip
-      </button>
-      <button av-button icon="calendar_today" [loading]="true">Calendário</button>
+<av-inline class="docs-shell">
+  <av-sidenav [toggleable]="true" [width]="'17rem'">
+    <div header>
+      <a class="brand" href="/overview">
+        <span class="brand-mark">Av</span>
+        <span>
+          <strong>Angular Visuals</strong>
+          <small>Style library docs</small>
+        </span>
+      </a>
     </div>
 
-    <section class="grid gap-3">
-      <div class="flex items-center justify-between gap-3">
-        <h2 class="text-lg font-bold">Ícones registrados</h2>
-        <span class="text-sm opacity-70">{{ icons.length }} ícones</span>
-      </div>
+    <div content>
+      <div class="nav-section-label">Comece aqui</div>
+      <av-nav-link href="/overview" icon="dashboard">Visão geral</av-nav-link>
+      <av-nav-link href="/guides" icon="menu_book">Guias</av-nav-link>
 
-      <div av-grid [cols]="{ xs: 2, sm: 3, md: 4, lg: 6 }" [gap]="0.75">
-        @for (icon of icons; track icon.name) {
-          <div
-            class="grid min-h-20 place-items-center gap-2 rounded-lg border border-slate-200 p-3 text-center"
-          >
-            <span av-icon [name]="icon.name" size="xl"></span>
-            <span class="max-w-full truncate text-xs opacity-70">{{ icon.name }}</span>
-          </div>
-        }
+      <div class="nav-section-label">Fundamentos</div>
+      <av-nav-link href="/foundations/colors" icon="palette">Cores</av-nav-link>
+      <av-nav-link href="/foundations/typography" icon="format_size">Tipografia</av-nav-link>
+      <av-nav-link href="/foundations/spacing" icon="space_bar">Espaçamento</av-nav-link>
+
+      <div class="nav-section-label">Componentes</div>
+      <av-dropdown label="Componentes" icon="widgets">
+        <av-nav-link href="/components/base">Base</av-nav-link>
+        <av-nav-link href="/components/form">Formulários</av-nav-link>
+        <av-nav-link href="/components/feedback">Feedback</av-nav-link>
+        <av-nav-link href="/components/layout">Layout</av-nav-link>
+        <av-nav-link href="/components/navigation">Navegação</av-nav-link>
+      </av-dropdown>
+    </div>
+
+    <div footer>
+      <div class="version">v0.1.0 · Em construção</div>
+    </div>
+  </av-sidenav>
+
+  <main class="docs-main">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">Angular Visuals</span>
+        <h1>Documentação da biblioteca</h1>
+      </div>
+      <button
+        class="theme-toggle"
+        type="button"
+        (click)="themeService.setMode(themeService.dark() ? 'light' : 'dark')"
+      >
+        {{ themeService.dark() ? 'Modo claro' : 'Modo escuro' }}
+      </button>
+    </header>
+
+    <section class="welcome-panel">
+      <span class="panel-kicker">Design system para Angular</span>
+      <h2>Uma base consistente para criar interfaces melhores.</h2>
+      <p>
+        Explore os fundamentos e componentes do Angular Visuals. Esta área será expandida com
+        exemplos, API, estados e boas práticas de uso.
+      </p>
+      <div class="panel-actions">
+        <a av-button href="/foundations/colors">Explorar fundamentos</a>
+        <a av-button variant="gray" href="/components/base">Ver componentes</a>
       </div>
     </section>
 
-    <form action="" class="grid gap-4">
-      <av-input label="Texto" placeholder="Digite alguma coisa" icon="calendar_today" />
-      <av-currency-input label="Valor" />
-      <av-date-time-picker label="Data e hora" />
-      <av-select
-        label="Select"
-        placeholder="Selecione um valor"
-        icon="calendar_today"
-        [data]="array()"
-      />
-      <av-multiselect
-        label="Multiselect"
-        placeholder="Selecione valores"
-        icon="calendar_today"
-        [data]="array()"
-      />
-      <av-checkbox label="Aceito os termos" />
-      <av-switch />
-      <av-file-upload
-        label="Anexos"
-        helper="Imagens ou PDF, com seleção múltipla"
-        accept="image/*,.pdf"
-        multiple
-        [value]="uploadedFiles()"
-        (valueChange)="uploadedFiles.set($event)"
-      />
-      <av-slider
-        label="Percentual"
-        valueSuffix="%"
-        [value]="sliderValue"
-      />
-      <av-slider
-        label="Faixa de valores"
-        range
-        showValue
-        valueSuffix="%"
-        [value]="sliderRangeValue()"
-        (valueChange)="updateSliderRange($event)"
-      />
-      <av-text-area
-        label="Observação"
-        placeholder="asdasadsads"
-       />
-    </form>
+    <section class="content-section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Mapa da documentação</span>
+          <h2>Onde começar</h2>
+        </div>
+        <span class="section-count">03 áreas</span>
+      </div>
+      <div class="overview-grid">
+        <a class="overview-card" href="/foundations/colors">
+          <span class="card-icon">01</span>
+          <h3>Fundamentos</h3>
+          <p>Cores, tipografia e espaçamento que dão unidade à interface.</p>
+          <span class="card-link">Abrir seção <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="overview-card" href="/components/base">
+          <span class="card-icon">02</span>
+          <h3>Componentes</h3>
+          <p>Elementos reutilizáveis organizados por responsabilidade.</p>
+          <span class="card-link">Abrir seção <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="overview-card" href="/guides">
+          <span class="card-icon">03</span>
+          <h3>Guias</h3>
+          <p>Orientações para instalar, configurar e evoluir a biblioteca.</p>
+          <span class="card-link">Abrir seção <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+    </section>
 
-    <div av-grid [cols]="{ xs: 1, md: 2 }" [gap]="1">
-      <av-progress-bar [value]="sliderRangeValue()[0]" [max]="100" [striped]="true" />
-      <av-progress-bar-circle [value]="sliderRangeValue()[1]" [max]="100" />
-    </div>
-
-    <div class="h-48 w-full">
-      <av-carousel class="overflow-hidden rounded-xl"  [auto]="false">
-        <av-carousel-item>
-          <div class="flex h-full items-center justify-center bg-orange-500 text-white">
-            Slide 1
-          </div>
-        </av-carousel-item>
-        <av-carousel-item>
-          <div class="flex h-full items-center justify-center bg-slate-700 text-white">Slide 2</div>
-        </av-carousel-item>
-        <av-carousel-item>
-          <div class="flex h-full items-center justify-center bg-blue-500 text-white">Slide 3</div>
-        </av-carousel-item>
-      </av-carousel>
-    </div>
-
-    <av-stepper [canSetStep]="true">
-      <av-step title="Dados" >
-        <div class="rounded-lg border border-slate-200 p-4">Conteúdo do primeiro passo.</div>
-      </av-step>
-      <av-step title="Revisão" >
-        <div class="rounded-lg border border-slate-200 p-4">Conteúdo do segundo passo.</div>
-      </av-step>
-      <av-step title="Envio" >
-        <div class="rounded-lg border border-slate-200 p-4">Conteúdo do terceiro passo.</div>
-      </av-step>
-    </av-stepper>
-
-    <av-tabs>
-      <av-tab title="Resumo" icon="dashboard">
-        <div class="rounded-lg border border-slate-200 p-4">Painel de resumo.</div>
-      </av-tab>
-      <av-tab title="Detalhes" icon="list">
-        <div class="rounded-lg border border-slate-200 p-4">Painel de detalhes.</div>
-      </av-tab>
-      <av-tab title="Bloqueada" icon="lock" disabled>
-        <div class="rounded-lg border border-slate-200 p-4">Não deveria abrir.</div>
-      </av-tab>
-    </av-tabs>
-
-    <av-table
-      [value]="rows()"
-      [paginator]="true"
-      [pageIndex]="0"
-      [pageSize]="10"
-      [totalRecords]="rows().length"
-      [rowsPerPageOptions]="[5, 10, 25]"
-    >
-      <ng-template #header>
-        <tr>
-          <th class="p-3">Nome</th>
-          <th class="p-3">Status</th>
-          <th class="p-3 text-right">Valor</th>
-        </tr>
-      </ng-template>
-
-      <ng-template #body let-row>
-        <tr>
-          <td class="p-3">{{ row.name }}</td>
-          <td class="p-3">{{ row.status }}</td>
-          <td class="p-3 text-right">{{ row.amount }}</td>
-        </tr>
-      </ng-template>
-    </av-table>
-  </div>
-
-  <router-outlet />
-</div>
+    <router-outlet />
+  </main>
+</av-inline>

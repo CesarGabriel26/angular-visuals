@@ -1,0 +1,47 @@
+<div class="av-dropdown" [ngStyle]="themeVars()">
+  <button
+    type="button"
+    class="av-dropdown__trigger"
+    [class.av-dropdown__trigger--active]="isExpanded()"
+    [disabled]="disabled()"
+    [attr.aria-controls]="panelId"
+    [attr.aria-expanded]="isExpanded()"
+    (click)="toggle()"
+  >
+    @if (icon()) {
+      <span class="av-dropdown__icon" av-icon [name]="icon()" size="md"></span>
+    }
+
+    <span class="av-dropdown__label">
+      @if (label()) {
+        {{ label() }}
+      } @else {
+        <ng-content select="[av-dropdown-label]"></ng-content>
+      }
+    </span>
+
+    @if (badge() !== null && badge() !== undefined) {
+      <span class="av-dropdown__badge">{{ badge() }}</span>
+    }
+
+    <span
+      class="av-dropdown__chevron"
+      av-icon
+      name="expand_more"
+      size="md"
+      [class.av-dropdown__chevron--open]="isExpanded()"
+    ></span>
+  </button>
+
+  <div
+    class="av-dropdown__panel"
+    [id]="panelId"
+    [class.av-dropdown__panel--open]="isExpanded()"
+    [attr.aria-hidden]="!isExpanded()"
+    [attr.inert]="isExpanded() ? null : ''"
+  >
+    <div class="av-dropdown__panel-inner">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

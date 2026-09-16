@@ -1,3 +1,4 @@
+import { AvDropdown, AvNavLink, AvSidenav, type AvSidenavMode, type AvSidenavTrigger } from './lib/components/nav/av-sidenav';
 import { AvCluster } from './lib/primitives/av-cluster/av-cluster';
 import { AvDivider } from './lib/primitives/av-divider/av-divider';
 import { AvInline } from './lib/primitives/av-inline/av-inline';
@@ -29,8 +30,12 @@ import { AvBadge } from '@av/lib/components/base/av-badge/av-badge.component';
 import { ThemeService } from '@av/lib/core/services/ThemeService.service';
 import { provideAngularVisuals } from '@av/lib/core/tokens'
 
+import { VISUALS_CONFIG } from './lib/core/tokens'
+
 export {
   provideAngularVisuals,
+
+  VISUALS_CONFIG,
 
   ThemeService,
   AvIconRegistry
@@ -43,7 +48,9 @@ export type {
   AvFileUploadValue,
   AvSliderRangeValue,
   AvSliderValue,
-  AvTooltipPosition
+  AvTooltipPosition,
+  AvSidenavMode,
+  AvSidenavTrigger
 }
 
 export {
@@ -79,5 +86,9 @@ export {
   AvSwitch,
   AvFileUpload,
   AvTextArea,
-  AvTooltip
+  AvTooltip,
+
+  AvDropdown,
+  AvNavLink,
+  AvSidenav
 }
