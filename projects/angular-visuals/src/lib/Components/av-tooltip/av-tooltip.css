@@ -1,0 +1,92 @@
+:host {
+  display: block;
+  pointer-events: none;
+}
+
+.av-tooltip-panel {
+  --av-tooltip-arrow-size: .48rem;
+
+  animation: av-tooltip-in 120ms cubic-bezier(.2, 0, 0, 1);
+  background: var(--av-tooltip-bg);
+  border: 1px solid var(--av-tooltip-border);
+  border-radius: var(--av-radius-md);
+  box-shadow: var(--av-tooltip-shadow);
+  color: var(--av-tooltip-color);
+  font-size: .75rem;
+  font-weight: 700;
+  line-height: 1.35;
+  max-width: min(18rem, calc(100vw - 2rem));
+  padding: .45rem .6rem;
+  position: relative;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.av-tooltip-panel::before {
+  background: var(--av-tooltip-accent);
+  border-radius: var(--av-radius-full);
+  content: '';
+  height: 2px;
+  inset-inline: .55rem;
+  opacity: .8;
+  position: absolute;
+}
+
+.av-tooltip-panel[data-position='top']::before {
+  bottom: 0;
+}
+
+.av-tooltip-panel[data-position='bottom']::before,
+.av-tooltip-panel[data-position='left']::before,
+.av-tooltip-panel[data-position='right']::before {
+  top: 0;
+}
+
+.av-tooltip-panel__text {
+  display: block;
+}
+
+.av-tooltip-panel__arrow {
+  background: var(--av-tooltip-bg);
+  border: solid var(--av-tooltip-border);
+  height: var(--av-tooltip-arrow-size);
+  position: absolute;
+  transform: rotate(45deg);
+  width: var(--av-tooltip-arrow-size);
+}
+
+.av-tooltip-panel[data-position='top'] .av-tooltip-panel__arrow {
+  border-width: 0 1px 1px 0;
+  bottom: calc(var(--av-tooltip-arrow-size) / -2);
+  left: calc(50% - var(--av-tooltip-arrow-size) / 2);
+}
+
+.av-tooltip-panel[data-position='bottom'] .av-tooltip-panel__arrow {
+  border-width: 1px 0 0 1px;
+  left: calc(50% - var(--av-tooltip-arrow-size) / 2);
+  top: calc(var(--av-tooltip-arrow-size) / -2);
+}
+
+.av-tooltip-panel[data-position='left'] .av-tooltip-panel__arrow {
+  border-width: 1px 1px 0 0;
+  right: calc(var(--av-tooltip-arrow-size) / -2);
+  top: calc(50% - var(--av-tooltip-arrow-size) / 2);
+}
+
+.av-tooltip-panel[data-position='right'] .av-tooltip-panel__arrow {
+  border-width: 0 0 1px 1px;
+  left: calc(var(--av-tooltip-arrow-size) / -2);
+  top: calc(50% - var(--av-tooltip-arrow-size) / 2);
+}
+
+@keyframes av-tooltip-in {
+  from {
+    opacity: 0;
+    transform: translateY(.15rem) scale(.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

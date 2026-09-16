@@ -1,3 +1,4 @@
+import { AvTooltip, type AvTooltipPosition } from './lib/Components/av-tooltip/av-tooltip';
 import { AvTextArea } from './lib/Components/form/av-text-area/av-text-area.component';
 import { AvFileUpload, type AvFileUploadFile, type AvFileUploadRejection, type AvFileUploadValue } from './lib/Components/form/av-file-upload/av-file-upload';
 import { AvText } from './lib/primitives/av-text/av-text';
@@ -37,7 +38,8 @@ export type {
   AvFileUploadRejection,
   AvFileUploadValue,
   AvSliderRangeValue,
-  AvSliderValue
+  AvSliderValue,
+  AvTooltipPosition
 }
 
 export {
@@ -67,5 +69,6 @@ export {
   AvSlider,
   AvSwitch,
   AvFileUpload,
-  AvTextArea
+  AvTextArea,
+  AvTooltip
 }

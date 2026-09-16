@@ -41,6 +41,7 @@ Componentes já presentes na lib:
 | Navegação | `AvTabs`, `AvTab`, `AvStepper`, `AvStep` |
 | Feedback | `AvProgressBar`, `AvProgressBarCircle` |
 | Mídia | `AvCarousel`, `AvCarouselItem` |
+| Overlays | `AvTooltip` |
 
 ### Primitives
 
@@ -87,7 +88,6 @@ Overlays:
 - `AvDialog`
 - `AvDrawer`
 - `AvPopover`
-- `AvTooltip`
 - `AvDropdownMenu`
 - `AvCommandPalette`
 

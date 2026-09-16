@@ -2,35 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
-import {
-  AvBadge,
-  AvButton,
-  AvCarousel,
-  AvCarouselItem,
-  AvCheckbox,
-  AvCurrencyInput,
-  AvDateTimePicker,
-  AvGrid,
-  AvIcon,
-  AvIconRegistry,
-  AvInput,
-  AvMultiSelect,
-  AvProgressBar,
-  AvProgressBarCircle,
-  AvSelect,
-  AvSlider,
-  AvStep,
-  AvStepper,
-  AvTab,
-  AvTabs,
-  AvTable,
-  ThemeService,
-  AvSwitch,
-  AvFileUpload,
-  type AvFileUploadFile,
-  type AvSliderValue,
-  AvTextArea,
-} from 'angular-visuals';
+import { AvBadge, AvButton, AvCarousel, AvCarouselItem, AvCheckbox, AvCurrencyInput, AvDateTimePicker, AvGrid, AvIcon, AvIconRegistry, AvInput, AvMultiSelect, AvProgressBar, AvProgressBarCircle, AvSelect, AvSlider, AvStep, AvStepper, AvTab, AvTabs, AvTable, ThemeService, AvSwitch, AvFileUpload, type AvFileUploadFile, type AvSliderValue, AvTextArea, AvTooltip } from 'angular-visuals';
 
 @Component({
   imports: [
@@ -38,7 +10,6 @@ import {
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-
     AvBadge,
     AvButton,
     AvInput,
@@ -61,8 +32,9 @@ import {
     AvSlider,
     AvSwitch,
     AvFileUpload,
-    AvTextArea
-  ],
+    AvTextArea,
+    AvTooltip
+],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
