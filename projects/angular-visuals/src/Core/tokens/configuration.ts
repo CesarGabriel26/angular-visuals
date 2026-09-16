@@ -1,5 +1,5 @@
 import { InjectionToken, Provider, makeEnvironmentProviders, EnvironmentProviders } from '@angular/core';
-import { VisualsConfig } from '../../types/theme';
+import { VisualsConfig } from '@av/types/theme';
 
 export const VISUALS_CONFIG = new InjectionToken<VisualsConfig>('VISUALS_CONFIG');
 

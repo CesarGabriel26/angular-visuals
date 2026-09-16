@@ -12,8 +12,8 @@ import {
   signal,
 } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { VISUALS_CONFIG } from '../../../../Core/tokens';
-import { ThemeService } from '../../../../Core/services/ThemeService.service';
+import { VISUALS_CONFIG } from '@av/core/tokens';
+import { ThemeService } from '@av/core/services/ThemeService.service';
 
 type AvRounded = number | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
 

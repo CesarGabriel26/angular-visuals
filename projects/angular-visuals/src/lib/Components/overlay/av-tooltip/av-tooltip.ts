@@ -22,8 +22,8 @@ import {
 } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { Subscription } from 'rxjs';
-import { VISUALS_CONFIG } from '../../../Core/tokens';
-import { ThemeService } from '../../../Core/services/ThemeService.service';
+import { VISUALS_CONFIG } from '@av/core/tokens';
+import { ThemeService } from '@av/core/services/ThemeService.service';
 
 export type AvTooltipPosition = 'top' | 'right' | 'bottom' | 'left';
 

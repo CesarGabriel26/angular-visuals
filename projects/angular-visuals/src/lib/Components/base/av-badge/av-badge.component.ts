@@ -5,7 +5,7 @@ import {
   input
 } from '@angular/core';
 
-import { VISUALS_CONFIG } from '../../../Core/tokens';
+import { VISUALS_CONFIG } from '@av/core/tokens';
 
 @Component({
   selector: 'span[av-badge]',

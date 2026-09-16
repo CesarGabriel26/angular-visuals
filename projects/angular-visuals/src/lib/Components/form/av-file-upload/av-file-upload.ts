@@ -15,9 +15,9 @@ import {
   effect
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { VISUALS_CONFIG } from '../../../../Core/tokens';
-import { ThemeService } from '../../../../Core/services/ThemeService.service';
-import { AvText } from '../../../primitives/av-text/av-text';
+import { VISUALS_CONFIG } from '@av/core/tokens';
+import { ThemeService } from '@av/core/services/ThemeService.service';
+import { AvText } from '@av/lib/primitives/av-text/av-text';
 
 export interface AvFileUploadFile {
   id: string;

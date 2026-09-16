@@ -1,5 +1,5 @@
 import { Component, HostBinding, inject, input } from '@angular/core';
-import { VISUALS_CONFIG } from '../../../Core/tokens';
+import { VISUALS_CONFIG } from '@av/core/tokens';
 import { AvIcon } from '../av-icon/av-icon.component';
 
 @Component({

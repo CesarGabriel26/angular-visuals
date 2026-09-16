@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { loaderSeed } from '../../utils/loader-icon-seed';
-import { iconSeed } from '../../utils/icons-seed';
+import { loaderSeed } from '@av/utils/loader-icon-seed';
+import { iconSeed } from '@av/utils/icons-seed';
 
 export interface AvRegisteredIcon {
   name: string;

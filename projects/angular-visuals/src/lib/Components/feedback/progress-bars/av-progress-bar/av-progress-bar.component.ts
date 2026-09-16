@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, inject, input } from '@angular/core';
-import { VISUALS_CONFIG } from '../../../../Core/tokens';
-import { ThemeService } from '../../../../Core/services/ThemeService.service';
+import { VISUALS_CONFIG } from '@av/core/tokens';
+import { ThemeService } from '@av/core/services/ThemeService.service';
 
 @Component({
   selector: 'av-progress-bar, av-progress-bard',

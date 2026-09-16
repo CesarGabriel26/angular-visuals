@@ -16,8 +16,8 @@ import {
   ReactiveFormsModule,
   FormsModule
 } from '@angular/forms';
-import { AvIcon } from '../../av-icon/av-icon.component';
-import { VISUALS_CONFIG } from '../../../../Core/tokens';
+import { AvIcon } from '@av/lib/components/base/av-icon/av-icon.component';
+import { VISUALS_CONFIG } from '@av/core/tokens';
 
 @Component({
   selector: 'av-text-area',

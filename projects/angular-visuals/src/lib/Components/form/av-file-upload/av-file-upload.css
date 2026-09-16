@@ -99,7 +99,7 @@
 .av-file-upload__action {
   background: var(--av-file-upload-accent);
   border-radius: var(--av-radius-md);
-  color: var(--av-color-text-inverse);
+  color: var(--av-color-text);
   font-size: .8125rem;
   font-weight: 800;
   padding: .48rem .72rem;
