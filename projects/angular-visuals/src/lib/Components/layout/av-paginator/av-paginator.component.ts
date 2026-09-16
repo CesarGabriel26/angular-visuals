@@ -1,5 +1,5 @@
 import { Component, computed, inject, input, output } from '@angular/core';
-import { VISUALS_CONFIG } from '@av/core/tokens';
+import { VISUALS_CONFIG } from '@av/lib/core/tokens';
 import { AvButton } from '@av/lib/components/base/av-button/av-button.component';
 import { AvIcon } from '@av/lib/components/base/av-icon/av-icon.component';
 

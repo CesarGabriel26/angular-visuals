@@ -74,6 +74,11 @@ export class ExampleComponent {}
 ### Primitives
 
 `AvText` exibe texto com transições `fade` e `slide`. É útil para nomes de arquivos, contadores, mensagens curtas e estados de carregamento:
+`AvStack` — layout vertical.
+`AvInline` — layout horizontal.
+`AvCluster` — layout inline com wrap para ações e tags.
+`AvDivider` — separador para menus, diálogos e layouts.
+
 
 ```html
 <av-text [text]="status" animation="fade" />
@@ -138,10 +143,6 @@ Depois de registrado, o ícone pode ser usado pelos componentes que aceitam nome
 2. `AvSkeleton` — estado de carregamento reutilizável.
 3. `AvAlert` — feedback com `variant`, `appearance` e `AvIcon`.
 4. `AvEmptyState` — estado vazio para tabelas, selects, árvores e outras telas.
-5. `AvStack` — layout vertical.
-6. `AvInline` — layout horizontal.
-7. `AvCluster` — layout inline com wrap para ações e tags.
-8. `AvDivider` — separador para menus, diálogos e layouts.
 9. `AvVisuallyHidden` — conteúdo visualmente oculto para acessibilidade.
 
 

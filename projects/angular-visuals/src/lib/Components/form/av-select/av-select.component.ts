@@ -15,8 +15,8 @@ import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, FormsModule, NgControl, ReactiveFormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { AvIcon } from '@av/lib/components/base/av-icon/av-icon.component';
-import { VISUALS_CONFIG } from '@av/core/tokens';
-import { ThemeService } from '@av/core/services/ThemeService.service';
+import { VISUALS_CONFIG } from '@av/lib/core/tokens';
+import { ThemeService } from '@av/lib/core/services/ThemeService.service';
 import { AvInput } from '@av/lib/components/form/av-input/av-input.component';
 
 @Component({

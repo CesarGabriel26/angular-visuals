@@ -12,8 +12,8 @@ import {
   signal,
 } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { VISUALS_CONFIG } from '@av/core/tokens';
-import { ThemeService } from '@av/core/services/ThemeService.service';
+import { VISUALS_CONFIG } from '@av/lib/core/tokens';
+import { ThemeService } from '@av/lib/core/services/ThemeService.service';
 import { AvIcon } from '@av/lib/components/base/av-icon/av-icon.component';
 
 export type DatePickerMode = 'date' | 'time' | 'datetime';

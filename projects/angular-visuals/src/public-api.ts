@@ -1,3 +1,7 @@
+import { AvCluster } from './lib/primitives/av-cluster/av-cluster';
+import { AvDivider } from './lib/primitives/av-divider/av-divider';
+import { AvInline } from './lib/primitives/av-inline/av-inline';
+import { AvStack } from './lib/primitives/av-stack/av-stack';
 import { AvTooltip, type AvTooltipPosition } from '@av/lib/components/overlay/av-tooltip/av-tooltip';
 import { AvTextArea } from '@av/lib/components/form/av-text-area/av-text-area.component';
 import { AvFileUpload, type AvFileUploadFile, type AvFileUploadRejection, type AvFileUploadValue } from '@av/lib/components/form/av-file-upload/av-file-upload';
@@ -13,7 +17,7 @@ import { AvForm } from '@av/lib/components/form/av-form/av-form.component';
 import { AvMultiSelect } from '@av/lib/components/form/av-multi-select/av-multi-select.component';
 import { AvGrid } from '@av/lib/components/layout/av-grid/grid.component';
 import { AvIcon } from '@av/lib/components/base/av-icon/av-icon.component';
-import { AvIconRegistry, type AvRegisteredIcon } from '@av/core/services/IconRegistry.service';
+import { AvIconRegistry, type AvRegisteredIcon } from '@av/lib/core/services/IconRegistry.service';
 import { AvPaginator } from '@av/lib/components/layout/av-paginator/av-paginator.component';
 import { AvProgressBar, AvProgressBarCircle } from '@av/lib/components/feedback/progress-bars';
 import { AvCarousel, AvCarouselItem } from '@av/lib/components/midia/carousel';
@@ -22,8 +26,8 @@ import { AvTab, AvTabs } from '@av/lib/components/nav/tabs';
 import { AvTable } from '@av/lib/components/layout/av-table/av-table.component';
 import { AvButton } from '@av/lib/components/base/av-button/av-button.component';
 import { AvBadge } from '@av/lib/components/base/av-badge/av-badge.component';
-import { ThemeService } from '@av/core/services/ThemeService.service';
-import { provideAngularVisuals } from '@av/core/tokens'
+import { ThemeService } from '@av/lib/core/services/ThemeService.service';
+import { provideAngularVisuals } from '@av/lib/core/tokens'
 
 export {
   provideAngularVisuals,
@@ -46,7 +50,12 @@ export {
   AvBadge,
   AvButton,
   AvIcon,
+
   AvText,
+  AvStack,
+  AvInline,
+  AvDivider,
+  AvCluster,
 
   AvInput,
   AvSelect,
