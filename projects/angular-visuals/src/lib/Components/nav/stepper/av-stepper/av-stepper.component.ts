@@ -10,9 +10,9 @@ import {
   output,
   signal,
 } from '@angular/core';
-import { VISUALS_CONFIG } from '@av/lib/core/tokens';
-import { ThemeService } from '@av/lib/core/services/ThemeService.service';
-import { AvIcon } from '@av/lib/components/base/av-icon/av-icon.component';
+import { VISUALS_CONFIG } from '../../../../core/tokens';
+import { ThemeService } from '../../../../core/services/ThemeService.service';
+import { AvIcon } from '../../../base/av-icon/av-icon.component';
 import { AvStep } from '../av-step/av-step.component';
 
 @Component({

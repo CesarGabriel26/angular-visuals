@@ -1,6 +1,6 @@
 import { Injectable, computed, effect, inject, signal } from '@angular/core';
 import { VISUALS_CONFIG } from '../tokens';
-import { AvThemeMode } from '@av/types/theme';
+import { AvThemeMode } from '../../../types/theme';
 
 @Injectable({
   providedIn: 'root'

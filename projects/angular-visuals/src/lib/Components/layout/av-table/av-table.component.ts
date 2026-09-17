@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, TemplateRef, computed, contentChild, inject, input, output } from '@angular/core';
-import { VISUALS_CONFIG } from '@av/lib/core/tokens';
+import { VISUALS_CONFIG } from '../../../core/tokens';
 import { AvPaginator } from '../av-paginator/av-paginator.component';
-import { AvSelect } from '@av/lib/components/form/av-select/av-select.component';
+import { AvSelect } from '../../form/av-select/av-select.component';
 
 export interface SortEvent {
   field: string;

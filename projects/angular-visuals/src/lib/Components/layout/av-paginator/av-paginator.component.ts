@@ -1,7 +1,7 @@
 import { Component, computed, inject, input, output } from '@angular/core';
-import { VISUALS_CONFIG } from '@av/lib/core/tokens';
-import { AvButton } from '@av/lib/components/base/av-button/av-button.component';
-import { AvIcon } from '@av/lib/components/base/av-icon/av-icon.component';
+import { VISUALS_CONFIG } from '../../../core/tokens';
+import { AvButton } from '../../base/av-button/av-button.component';
+import { AvIcon } from '../../base/av-icon/av-icon.component';
 
 @Component({
   selector: 'av-paginator',

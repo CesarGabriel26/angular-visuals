@@ -12,8 +12,8 @@ import {
   signal,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { VISUALS_CONFIG } from '@av/lib/core/tokens';
-import { ThemeService } from '@av/lib/core/services/ThemeService.service';
+import { VISUALS_CONFIG } from '../../../core/tokens';
+import { ThemeService } from '../../../core/services/ThemeService.service';
 
 export type AvSliderRangeValue = [number, number];
 export type AvSliderValue = number | AvSliderRangeValue;

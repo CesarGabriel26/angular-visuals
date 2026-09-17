@@ -16,8 +16,8 @@ import {
   output,
   signal,
 } from '@angular/core';
-import { VISUALS_CONFIG } from '@av/lib/core/tokens';
-import { ThemeService } from '@av/lib/core/services/ThemeService.service';
+import { VISUALS_CONFIG } from '../../../core/tokens';
+import { ThemeService } from '../../../core/services/ThemeService.service';
 
 export type AvSidenavMode = 'side' | 'drawer';
 export type AvSidenavTrigger = ElementRef<HTMLElement> | HTMLElement | null | undefined;
@@ -71,7 +71,7 @@ export class AvSidenav {
     const isDark = this.themeService.dark();
 
     console.log(variant);
-    
+
 
     return {
       '--av-sidenav-accent': `var(--av-${variant}-${isDark ? 400 : 500})`,

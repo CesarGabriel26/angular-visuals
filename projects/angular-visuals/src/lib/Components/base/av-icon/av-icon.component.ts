@@ -1,6 +1,6 @@
 import { Component, HostBinding, input, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AvIconRegistry } from '@av/lib/core/services/IconRegistry.service';
+import { AvIconRegistry } from '../../../core/services/IconRegistry.service';
 
 type AvIconSize = 'xs' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | number;
 

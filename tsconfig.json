@@ -4,11 +4,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "angular-visuals": ["./projects/angular-visuals/src/public-api.ts"],
-      "@av/core/*": ["./projects/angular-visuals/src/Core/*"],
-      "@av/lib/*": ["./projects/angular-visuals/src/lib/*"],
-      "@av/types/*": ["./projects/angular-visuals/src/types/*"],
-      "@av/utils/*": ["./projects/angular-visuals/src/utils/*"]
+      "angular-visuals": ["./projects/angular-visuals/src/public-api.ts"]
     },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

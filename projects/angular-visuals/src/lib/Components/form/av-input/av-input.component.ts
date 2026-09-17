@@ -16,8 +16,8 @@ import {
   ReactiveFormsModule,
   FormsModule
 } from '@angular/forms';
-import { AvIcon } from '@av/lib/components/base/av-icon/av-icon.component';
-import { VISUALS_CONFIG } from '@av/lib/core/tokens';
+import { AvIcon } from '../../base/av-icon/av-icon.component';
+import { VISUALS_CONFIG } from '../../../core/tokens';
 
 @Component({
   selector: 'av-input',

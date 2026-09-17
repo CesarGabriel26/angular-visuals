@@ -14,10 +14,10 @@ import {
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, FormsModule, NgControl, ReactiveFormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { AvIcon } from '@av/lib/components/base/av-icon/av-icon.component';
-import { VISUALS_CONFIG } from '@av/lib/core/tokens';
-import { ThemeService } from '@av/lib/core/services/ThemeService.service';
-import { AvInput } from '@av/lib/components/form/av-input/av-input.component';
+import { AvIcon } from '../../base/av-icon/av-icon.component';
+import { VISUALS_CONFIG } from '../../../core/tokens';
+import { ThemeService } from '../../../core/services/ThemeService.service';
+import { AvInput } from '../av-input/av-input.component';
 
 @Component({
   selector: 'av-select',
