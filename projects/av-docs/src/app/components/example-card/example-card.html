@@ -1,0 +1,39 @@
+<div class="example">
+  <header class="example-header">
+    <div class="example-heading">
+      <div class="example-title-row">
+        <strong>
+          {{ example().title }}
+        </strong>
+
+        @if (example().new) {
+          <span av-badge variant="orange">New</span>
+        }
+      </div>
+
+      @if (example().description) {
+        <p>{{ example().description }}</p>
+      }
+    </div>
+
+    <div class="example-actions">
+      <button av-button variant="slate" type="button" aria-label="Copiar código" title="Copiar código" (click)="copyCode()">
+        <span av-icon name="copy"></span>
+      </button>
+
+      <button av-button variant="slate" type="button" aria-label="Alternar código" title="Alternar código" (click)="showCode.update((v) => !v)">
+        <span av-icon name="code"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="example-preview">
+    <ng-container *ngComponentOutlet="example().component" />
+  </div>
+
+  @if (showCode()) {
+    <div class="example-code">
+      <pre><code>{{ example().code }}</code></pre>
+    </div>
+  }
+</div>

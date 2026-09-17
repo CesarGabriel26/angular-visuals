@@ -49,6 +49,14 @@
   font-weight: 700;
 }
 
+/* When routerLinkActive applies a class on the host element */
+:host(.active) .av-nav-link {
+  background: var(--av-nav-link-accent-soft);
+  border-color: color-mix(in srgb, var(--av-nav-link-accent) 28%, transparent);
+  color: var(--av-nav-link-text-active);
+  font-weight: 700;
+}
+
 .av-nav-link--disabled {
   cursor: not-allowed;
   opacity: .52;

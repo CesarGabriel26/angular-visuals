@@ -1,0 +1,104 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+@media (min-width: 980px) {
+  :host.example--lg {
+    grid-column: span 2;
+  }
+}
+
+:host.example--full {
+  grid-column: 1 / -1;
+}
+
+.example {
+  display: flex;
+  min-height: 100%;
+  overflow: hidden;
+  flex-direction: column;
+  border: 1px solid var(--av-color-border-soft);
+  border-radius: var(--av-radius-md);
+  background: var(--av-color-surface);
+}
+
+.example-header {
+  display: flex;
+  min-height: 4.5rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--av-color-border-soft);
+}
+
+.example-heading {
+  min-width: 0;
+}
+
+.example-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.example-title-row strong {
+  color: var(--av-color-text);
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+.example-heading p {
+  max-width: 60ch;
+  margin: 0.35rem 0 0;
+  color: var(--av-color-text-muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.example-actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.example-actions button[av-button] {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+}
+
+.example-preview {
+  display: grid;
+  min-height: 10rem;
+  place-items: center;
+  padding: 1.4rem;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--av-color-border-soft) 72%, transparent) 1px, transparent 1px),
+    linear-gradient(0deg, color-mix(in srgb, var(--av-color-border-soft) 72%, transparent) 1px, transparent 1px);
+  background-color: color-mix(in srgb, var(--av-color-bg) 62%, var(--av-color-surface));
+  background-size: 24px 24px;
+}
+
+.example-code {
+  border-top: 1px solid var(--av-color-border-soft);
+  background: var(--av-color-surface-raised);
+}
+
+.example-code pre {
+  max-height: 22rem;
+  margin: 0;
+  overflow: auto;
+  padding: 1rem;
+}
+
+.example-code code {
+  color: var(--av-color-text);
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  white-space: pre;
+}

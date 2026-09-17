@@ -14,7 +14,11 @@ export class AvDivider {
   direction = input<'vert' | 'hori'>('hori');
   variant = input<string>(this.config.theme.defaultVariant);
 
-  get style() {
-    return this.direction() == 'vert' ? `border-left ${4 * this.size()}px solid var(--av-${this.variant()}-600)` : `border-top ${4 * this.size()}px solid var(--av-${this.variant()}-600)`
+  get borderStyle(): string {
+    return `${4 * this.size()}px solid var(--av-${this.variant()}-600)`;
+  }
+
+  get isVertical(): boolean {
+    return this.direction() === 'vert';
   }
 }

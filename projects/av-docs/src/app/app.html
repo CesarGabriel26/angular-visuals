@@ -1,7 +1,7 @@
 <av-inline class="docs-shell">
   <av-sidenav [toggleable]="true" [width]="'17rem'">
     <div header>
-      <a class="brand" href="/overview">
+      <a class="brand" routerLink="/overview">
         <span class="brand-mark">Av</span>
         <span>
           <strong>Angular Visuals</strong>
@@ -12,21 +12,24 @@
 
     <div content>
       <div class="nav-section-label">Comece aqui</div>
-      <av-nav-link href="/overview" icon="dashboard">Visão geral</av-nav-link>
-      <av-nav-link href="/guides" icon="menu_book">Guias</av-nav-link>
+      <av-nav-link route="/overview" icon="dashboard" label="Visão geral" />
+      <av-nav-link route="/guides" icon="menu_book" label="Guias" />
 
       <div class="nav-section-label">Fundamentos</div>
-      <av-nav-link href="/foundations/colors" icon="palette">Cores</av-nav-link>
-      <av-nav-link href="/foundations/typography" icon="format_size">Tipografia</av-nav-link>
-      <av-nav-link href="/foundations/spacing" icon="space_bar">Espaçamento</av-nav-link>
+      <av-nav-link route="/foundations/colors" icon="palette" label="Cores" />
+      <av-nav-link route="/foundations/typography" icon="format_size" label="Tipografia" />
+      <av-nav-link route="/foundations/spacing" icon="space_bar" label="Espaçamento" />
 
       <div class="nav-section-label">Componentes</div>
       <av-dropdown label="Componentes" icon="widgets">
-        <av-nav-link href="/components/base">Base</av-nav-link>
-        <av-nav-link href="/components/form">Formulários</av-nav-link>
-        <av-nav-link href="/components/feedback">Feedback</av-nav-link>
-        <av-nav-link href="/components/layout">Layout</av-nav-link>
-        <av-nav-link href="/components/navigation">Navegação</av-nav-link>
+        @for (componentDoc of componentDocs; track componentDoc.slug) {
+          <av-nav-link
+            [route]="['/components', componentDoc.slug]"
+            [label]="componentDoc.name"
+            [description]="componentDoc.tag"
+            [badge]="componentDoc.hasNew ? 'New' : null"
+          />
+        }
       </av-dropdown>
     </div>
 
@@ -35,64 +38,7 @@
     </div>
   </av-sidenav>
 
-  <main class="docs-main">
-    <header class="topbar">
-      <div>
-        <span class="eyebrow">Angular Visuals</span>
-        <h1>Documentação da biblioteca</h1>
-      </div>
-      <button
-        class="theme-toggle"
-        type="button"
-        (click)="themeService.setMode(themeService.dark() ? 'light' : 'dark')"
-      >
-        {{ themeService.dark() ? 'Modo claro' : 'Modo escuro' }}
-      </button>
-    </header>
-
-    <section class="welcome-panel">
-      <span class="panel-kicker">Design system para Angular</span>
-      <h2>Uma base consistente para criar interfaces melhores.</h2>
-      <p>
-        Explore os fundamentos e componentes do Angular Visuals. Esta área será expandida com
-        exemplos, API, estados e boas práticas de uso.
-      </p>
-      <div class="panel-actions">
-        <a av-button href="/foundations/colors">Explorar fundamentos</a>
-        <a av-button variant="gray" href="/components/base">Ver componentes</a>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <div class="section-heading">
-        <div>
-          <span class="eyebrow">Mapa da documentação</span>
-          <h2>Onde começar</h2>
-        </div>
-        <span class="section-count">03 áreas</span>
-      </div>
-      <div class="overview-grid">
-        <a class="overview-card" href="/foundations/colors">
-          <span class="card-icon">01</span>
-          <h3>Fundamentos</h3>
-          <p>Cores, tipografia e espaçamento que dão unidade à interface.</p>
-          <span class="card-link">Abrir seção <span aria-hidden="true">→</span></span>
-        </a>
-        <a class="overview-card" href="/components/base">
-          <span class="card-icon">02</span>
-          <h3>Componentes</h3>
-          <p>Elementos reutilizáveis organizados por responsabilidade.</p>
-          <span class="card-link">Abrir seção <span aria-hidden="true">→</span></span>
-        </a>
-        <a class="overview-card" href="/guides">
-          <span class="card-icon">03</span>
-          <h3>Guias</h3>
-          <p>Orientações para instalar, configurar e evoluir a biblioteca.</p>
-          <span class="card-link">Abrir seção <span aria-hidden="true">→</span></span>
-        </a>
-      </div>
-    </section>
-
+  <div class="flex-1 h-full min-h-0 min-w-0 w-full">
     <router-outlet />
-  </main>
+  </div>
 </av-inline>

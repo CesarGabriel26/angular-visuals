@@ -3,9 +3,10 @@ import { Component, ElementRef, booleanAttribute, computed, inject, input, outpu
 import { AvIcon } from '@av/lib/components/base/av-icon/av-icon.component';
 import { VISUALS_CONFIG } from '@av/lib/core/tokens';
 import { ThemeService } from '@av/lib/core/services/ThemeService.service';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
-  imports: [CommonModule, AvIcon],
+  imports: [CommonModule, AvIcon, RouterLink, RouterLinkActive],
   selector: 'av-nav-link',
   styleUrl: './av-nav-link.component.css',
   templateUrl: './av-nav-link.component.html',
@@ -20,11 +21,17 @@ export class AvNavLink {
   description = input<string>('');
   disabled = input<boolean, unknown>(false, { transform: booleanAttribute });
   href = input<string>('');
+  // route can be string or link params array
+  route = input<string | any[] | null>(null);
   icon = input<string>('');
   label = input<string>('');
   rel = input<string>('');
   target = input<string>('');
   variant = input<string>(this.config.theme.defaultVariant);
+  // class to apply when routerLink is active
+  routerActiveClass = input<string>('active');
+  // routerLinkActive options (defaults to exact match)
+  routerActiveOptions = input<Record<string, boolean>>({ exact: true });
 
   selected = output<Event>();
 
@@ -47,6 +54,12 @@ export class AvNavLink {
     if (this.rel()) return this.rel();
 
     return this.target() === '_blank' ? 'noopener noreferrer' : null;
+  });
+
+  readonly isExternal = computed<boolean>(() => {
+    const h = this.href();
+    if (!h) return false;
+    return /^(https?:)?\/\//.test(h);
   });
 
   handleClick(event: Event): void {

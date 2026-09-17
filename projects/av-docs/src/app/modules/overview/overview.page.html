@@ -1,0 +1,59 @@
+<main class="docs-main">
+  <header class="topbar">
+    <div>
+      <span class="eyebrow">Angular Visuals</span>
+      <h1>Documentação da biblioteca</h1>
+    </div>
+    <button
+      class="theme-toggle"
+      type="button"
+      (click)="themeService.setMode(themeService.dark() ? 'light' : 'dark')"
+    >
+      {{ themeService.dark() ? 'Modo claro' : 'Modo escuro' }}
+    </button>
+  </header>
+
+  <section class="welcome-panel">
+    <span class="panel-kicker">Design system para Angular</span>
+    <h2>Uma base consistente para criar interfaces melhores.</h2>
+    <p>
+      Explore os fundamentos e componentes do Angular Visuals. Esta área será expandida com
+      exemplos, API, estados e boas práticas de uso.
+    </p>
+    <div class="panel-actions">
+      <a av-button routerLink="/foundations/colors">Explorar fundamentos</a>
+      <a av-button variant="gray" routerLink="/components/base">Ver componentes</a>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">Mapa da documentação</span>
+        <h2>Onde começar</h2>
+      </div>
+      <span class="section-count">03 áreas</span>
+    </div>
+    <div class="overview-grid">
+      <a class="overview-card" routerLink="/foundations/colors">
+        <span class="card-icon">01</span>
+        <h3>Fundamentos</h3>
+        <p>Cores, tipografia e espaçamento que dão unidade à interface.</p>
+        <span class="card-link">Abrir seção <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="overview-card" routerLink="/components/base">
+        <span class="card-icon">02</span>
+        <h3>Componentes</h3>
+        <p>Elementos reutilizáveis organizados por responsabilidade.</p>
+        <span class="card-link">Abrir seção <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="overview-card" routerLink="/guides">
+        <span class="card-icon">03</span>
+        <h3>Guias</h3>
+        <p>Orientações para instalar, configurar e evoluir a biblioteca.</p>
+        <span class="card-link">Abrir seção <span aria-hidden="true">→</span></span>
+      </a>
+    </div>
+  </section>
+
+</main>

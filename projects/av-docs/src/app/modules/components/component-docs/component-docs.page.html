@@ -1,0 +1,123 @@
+@if (doc(); as doc) {
+  <main class="component-doc-page">
+    <header class="component-header">
+      <div class="component-meta">
+        <span av-badge [variant]="categoryVariant(doc.category)">
+          {{ categoryLabel(doc.category) }}
+        </span>
+
+        <code>{{ doc.tag }}</code>
+      </div>
+
+      <h1>{{ doc.name }}</h1>
+
+      @if (doc.description) {
+        <p>{{ doc.description }}</p>
+      }
+    </header>
+
+    <section class="docs-section" aria-labelledby="examples-title">
+      <div class="section-heading">
+        <h2 id="examples-title">Exemplos</h2>
+      </div>
+
+      <div class="examples">
+        @for (example of doc.examples; track example.id) {
+          <docs-example [example]="example" />
+        }
+      </div>
+    </section>
+
+    @if (doc.api; as api) {
+      <section class="docs-section" aria-labelledby="api-title">
+        <div class="section-heading">
+          <h2 id="api-title">API</h2>
+        </div>
+
+        @if (api.inputs; as inputs) {
+          @if (inputs.length) {
+            <div class="api-block">
+              <h3>Inputs</h3>
+
+              <div class="api-table-wrap">
+                <table class="api-table">
+                  <thead>
+                    <tr>
+                      <th>Input</th>
+                      <th>Tipo</th>
+                      <th>Default</th>
+                      <th>Descricao</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    @for (input of inputs; track input.name) {
+                      <tr>
+                        <td><code>{{ input.name }}</code></td>
+                        <td><code>{{ input.type }}</code></td>
+                        <td>
+                          @if (input.default) {
+                            <code>{{ input.default }}</code>
+                          } @else {
+                            <span class="muted">-</span>
+                          }
+                        </td>
+                        <td>{{ input.description ?? '-' }}</td>
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          }
+        }
+
+        @if (api.outputs; as outputs) {
+          @if (outputs.length) {
+            <div class="api-block">
+              <h3>Outputs</h3>
+
+              <div class="api-table-wrap">
+                <table class="api-table">
+                  <thead>
+                    <tr>
+                      <th>Output</th>
+                      <th>Tipo</th>
+                      <th>Descricao</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    @for (output of outputs; track output.name) {
+                      <tr>
+                        <td><code>{{ output.name }}</code></td>
+                        <td><code>{{ output.type }}</code></td>
+                        <td>{{ output.description ?? '-' }}</td>
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          }
+        }
+      </section>
+    }
+  </main>
+} @else {
+  <main class="component-doc-page component-doc-page--empty">
+    <section class="empty-state">
+      <span av-badge variant="red">404</span>
+      <h1>Componente nao encontrado</h1>
+      <p>Escolha um componente registrado para abrir a documentacao.</p>
+
+      <div class="doc-links">
+        @for (item of docs; track item.slug) {
+          <a [routerLink]="['/components', item.slug]">
+            {{ item.name }}
+          </a>
+        }
+      </div>
+    </section>
+  </main>
+}

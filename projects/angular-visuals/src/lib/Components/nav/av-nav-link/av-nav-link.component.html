@@ -1,10 +1,12 @@
-@if (href() && !disabled()) {
+@if (!disabled() && (route() || (href() && !isExternal()))) {
   <a
     class="av-nav-link"
     [ngStyle]="themeVars()"
     [class.av-nav-link--active]="active()"
     [attr.aria-current]="active() ? 'page' : null"
-    [href]="href()"
+    [routerLink]="route() ? route() : href()"
+    [routerLinkActive]="routerActiveClass()"
+    [routerLinkActiveOptions]="routerActiveOptions()"
     [attr.rel]="relValue()"
     [attr.target]="target() || null"
     (click)="handleClick($event)"
@@ -12,18 +14,33 @@
     <ng-container [ngTemplateOutlet]="content"></ng-container>
   </a>
 } @else {
-  <button
-    type="button"
-    class="av-nav-link"
-    [ngStyle]="themeVars()"
-    [class.av-nav-link--active]="active()"
-    [class.av-nav-link--disabled]="disabled()"
-    [disabled]="disabled()"
-    [attr.aria-current]="active() ? 'page' : null"
-    (click)="handleClick($event)"
-  >
-    <ng-container [ngTemplateOutlet]="content"></ng-container>
-  </button>
+  @if (href() && !disabled()) {
+    <a
+      class="av-nav-link"
+      [ngStyle]="themeVars()"
+      [class.av-nav-link--active]="active()"
+      [attr.aria-current]="active() ? 'page' : null"
+      [attr.href]="href()"
+      [attr.rel]="relValue()"
+      [attr.target]="target() || null"
+      (click)="handleClick($event)"
+    >
+      <ng-container [ngTemplateOutlet]="content"></ng-container>
+    </a>
+  } @else {
+    <button
+      type="button"
+      class="av-nav-link"
+      [ngStyle]="themeVars()"
+      [class.av-nav-link--active]="active()"
+      [class.av-nav-link--disabled]="disabled()"
+      [disabled]="disabled()"
+      [attr.aria-current]="active() ? 'page' : null"
+      (click)="handleClick($event)"
+    >
+      <ng-container [ngTemplateOutlet]="content"></ng-container>
+    </button>
+  }
 }
 
 <ng-template #content>

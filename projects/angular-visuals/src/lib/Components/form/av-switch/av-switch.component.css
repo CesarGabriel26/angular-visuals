@@ -6,6 +6,7 @@
 
   display: inline-flex;
   position: relative;
+  cursor: pointer;
 
   width: var(--av-switch-width);
   height: var(--av-switch-height);

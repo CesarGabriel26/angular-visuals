@@ -2,7 +2,7 @@
 :root[data-av-theme="light"] {
   color-scheme: light;
 
-  --av-color-bg: var(--av-slate-50);
+  --av-color-bg: var(--av-neutral-50);
   --av-color-surface: var(--av-white);
   --av-color-surface-muted: var(--av-slate-100);
   --av-color-surface-raised: var(--av-white);
